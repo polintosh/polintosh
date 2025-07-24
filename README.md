@@ -1,3 +1,5 @@
+<img width="1584" height="396" alt="Banner" src="https://github.com/user-attachments/assets/568d2e84-2ecc-4506-931b-d08e4f892873" />
+
 <div align="center">
   <h1>👋 Hey, I'm Pol Hernàndez - Polintosh</h1>
   <p><strong>Software Developer | iOS Specialist | AI/ML Investigator</strong></p>
