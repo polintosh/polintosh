@@ -97,7 +97,9 @@ export default function NavBar({
 
         {/* Navigation Links */}
         <div className="flex-grow flex flex-col justify-center">
-          <div className="space-y-3">
+          <div className="space-y-6">
+            {" "}
+            {/* Ensure spacing between navigation links */}
             {navSections.map((item) => {
               const isActive = pathname === item.path;
               return (
@@ -109,6 +111,7 @@ export default function NavBar({
                       border: isActive
                         ? `1px solid ${colors.accent}`
                         : "1px solid transparent",
+                      marginBottom: "12px", // Explicit margin added for spacing
                     }}
                     whileHover={{ backgroundColor: colors.accent + "20" }}
                     animate={
