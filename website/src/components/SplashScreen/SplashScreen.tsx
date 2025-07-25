@@ -1,5 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
+import { Sparkle } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -157,7 +158,7 @@ export default function SplashScreen() {
 
               {/* Avatar Image */}
               <motion.div
-                className="relative z-10"
+                className="relative z-10 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: easingCurves.gentle }}
               >
@@ -171,6 +172,12 @@ export default function SplashScreen() {
                     boxShadow: `0 25px 50px ${colors.glass.shadow}`,
                   }}
                   priority
+                />
+                {/* Subtle Lucide Sparkle icon */}
+                <Sparkle
+                  size={22}
+                  strokeWidth={2}
+                  className="absolute bottom-2 right-2 text-blue-400 dark:text-orange-300 opacity-70"
                 />
               </motion.div>
 
