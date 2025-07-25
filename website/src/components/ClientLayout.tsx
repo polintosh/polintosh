@@ -1,9 +1,10 @@
 "use client";
 
+import ContentWrapper from "@/components/ContentWrapper/ContentWrapper";
 import NavBar from "@/components/NavBar/NavBar";
 import SplashScreen from "@/components/SplashScreen/SplashScreen";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ClientLayout({
   children,
@@ -12,20 +13,28 @@ export default function ClientLayout({
 }) {
   const [isSplashFinished, setSplashFinished] = useState(false);
 
+  // Remove no-transition class after initial load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      document.body.classList.remove("no-transition");
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <SplashScreen onComplete={() => setSplashFinished(true)} />
       <NavBar isSplashActive={!isSplashFinished} />
       <AnimatePresence>
         {isSplashFinished && (
-          <motion.main
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="pl-24 pr-8 pt-8" // Adjust padding to avoid overlap with NavBar
+            className="w-full"
           >
-            {children}
-          </motion.main>
+            <ContentWrapper>{children}</ContentWrapper>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

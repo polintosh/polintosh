@@ -3,7 +3,7 @@
 import { colorSystem, useTheme } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 
-export default function HomePage() {
+export default function DashboardPage() {
   const { theme } = useTheme();
   const colors = colorSystem[theme];
 
@@ -23,7 +23,7 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          Home
+          Dashboard
         </motion.h1>
         <motion.p
           className="text-lg leading-relaxed"
@@ -32,8 +32,8 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          Welcome to my personal portfolio. Discover my journey, projects, and
-          passion for creating exceptional digital experiences.
+          Real-time view of professional activity, GitHub contributions, and
+          ongoing projects.
         </motion.p>
       </div>
     </motion.div>

@@ -1,4 +1,5 @@
 import ClientLayout from "@/components/ClientLayout";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import type { Metadata } from "next";
 import { Baloo_2, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -34,11 +35,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${baloo.variable}`}
+      suppressHydrationWarning
     >
-      <body>
-        <ClientLayout>
-          <main className="flex-grow container mx-auto px-4">{children}</main>
-        </ClientLayout>
+      <body className="no-transition">
+        <ThemeProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
