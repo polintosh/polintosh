@@ -3,7 +3,7 @@
 import { colorSystem, useTheme } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 
-export default function WritingPage() {
+export default function BlogPage() {
   const { theme } = useTheme();
   const colors = colorSystem[theme];
 
@@ -23,7 +23,7 @@ export default function WritingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          Writing
+          Blog
         </motion.h1>
         <motion.p
           className="text-lg leading-relaxed"

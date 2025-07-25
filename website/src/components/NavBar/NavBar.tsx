@@ -27,7 +27,7 @@ const navSections = [
   { name: "Career", icon: Briefcase, path: "/career" },
   { name: "Projects", icon: FolderGit2, path: "/projects" },
   { name: "Stack", icon: Code, path: "/stack" },
-  { name: "Writing", icon: PenSquare, path: "/writing" },
+  { name: "Blog", icon: PenSquare, path: "/blog" },
   { name: "Contact", icon: Mail, path: "/contact" },
 ];
 
