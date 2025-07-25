@@ -37,14 +37,14 @@ export default function PageWrapper({
     >
       {(title || subtitle) && (
         <motion.header
-          className="mb-8"
+          className="mb-6"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           {title && (
             <h1
-              className="text-4xl md:text-5xl font-baloo font-bold mb-2"
+              className="text-4xl md:text-5xl font-baloo font-bold mb-3"
               style={{ color: colors.textPrimary }}
             >
               {title}
@@ -52,7 +52,7 @@ export default function PageWrapper({
           )}
           {subtitle && (
             <p
-              className="text-lg md:text-xl"
+              className="text-lg md:text-xl leading-relaxed"
               style={{ color: colors.textSecondary }}
             >
               {subtitle}

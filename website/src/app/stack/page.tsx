@@ -1,41 +1,24 @@
 "use client";
 
-import { colorSystem, useTheme } from "@/contexts/ThemeContext";
+import PageWrapper from "@/components/PageWrapper/PageWrapper";
 import { motion } from "framer-motion";
 
 export default function StackPage() {
-  const { theme } = useTheme();
-  const colors = colorSystem[theme];
-
   return (
-    <motion.div
-      className="max-w-4xl mx-auto"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <PageWrapper
+      title="Stack"
+      subtitle="Technologies, frameworks, and tools that power my development workflow and creative process."
     >
-      {/* Page Header */}
-      <div className="mb-12">
-        <motion.h1
-          className="text-4xl font-baloo font-bold mb-4"
-          style={{ color: colors.textPrimary }}
+      <div className="max-w-4xl mx-auto">
+        <motion.div
+          className="space-y-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
         >
-          Stack
-        </motion.h1>
-        <motion.p
-          className="text-lg leading-relaxed"
-          style={{ color: colors.textSecondary }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          Technologies, frameworks, and tools that power my development workflow
-          and creative process.
-        </motion.p>
+          {/* Tech stack content will go here */}
+        </motion.div>
       </div>
-    </motion.div>
+    </PageWrapper>
   );
 }

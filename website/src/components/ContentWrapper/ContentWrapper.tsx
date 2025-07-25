@@ -28,7 +28,7 @@ export default function ContentWrapper({
     <motion.div
       className={`
         min-h-screen
-        ml-[264px]
+        ml-64
         transition-all duration-300 ease-in-out
         ${className}
       `}
@@ -43,7 +43,7 @@ export default function ContentWrapper({
       {/* Content area with proper scrolling */}
       <div className="relative h-screen overflow-y-auto">
         <div
-          className="p-4 pb-16"
+          className="px-8 py-6"
           style={{
             minHeight: "100vh",
             backgroundColor: colors.pageBackground,
