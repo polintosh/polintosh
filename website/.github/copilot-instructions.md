@@ -34,58 +34,54 @@ Create a **minimalistic yet rich** user experience, inspired by Apple, Google, O
 
 Structure the site into modular, reusable sections/components. The navigation should be intuitive, guiding the user through a narrative that balances personality and professional expertise.
 
-1.  **Home**
+1.  **Home / Dashboard**
 
     - A captivating hero section featuring an avatar, name, and a concise, powerful tagline (e.g., "Product-minded Software Engineer").
+    - **Below the hero, a dynamic "Live Status" section** that offers a glimpse of real-time activity (e.g., latest GitHub commit, current project focus), acting as a mini-dashboard. This keeps the homepage alive and engaging.
     - Clear Call-to-Action (CTA) buttons leading to key sections like "Projects" or "Contact".
     - A subtle, animated scroll indicator to encourage exploration.
 
-2.  **Dashboard**
-
-    - A dynamic, at-a-glance view of professional activity. This replaces a static "GitHub Stats" page.
-    - Integrate real-time data via GitHub API: contribution graph, recent activity, pinned repositories.
-    - Potentially include status indicators for ongoing projects (from the Roadmap).
-
-3.  **Career**
+2.  **Career**
 
     - An interactive, vertical timeline showcasing professional experience.
     - Each entry should detail the role, company, duration, and key technologies.
     - Use micro-animations to highlight progression and achievements. The tone should be confident yet approachable.
 
-4.  **Projects**
+3.  **Projects (as Case Studies)**
 
-    - A curated grid or carousel of your most significant work.
-    - Each project card must include a high-quality image/video, a brief description, the tech stack used, and links to the live demo and source code.
+    - A curated grid of your most significant work, presented as **mini case studies**.
+    - Each project should not just be a card, but a gateway to a brief story: **the problem, the process, and the solution**.
+    - Must include a high-quality image/video, a brief description, the tech stack used, and links to the live demo and source code.
     - Implement filtering by technology or project type.
     - Include well-designed placeholder cards for upcoming projects to build anticipation.
 
-5.  **Stack**
+4.  **Stack**
 
     - A visually engaging grid of technologies, grouped by category (e.g., Frontend, Backend, DevOps, Design).
     - Icons should be clean and recognizable. On hover, a tooltip can provide more detail or proficiency level.
 
-6.  **Writing**
+5.  **Writing**
 
     - A dedicated space for articles, tutorials, and thoughts. Replaces a generic "Blog".
     - Clean, readable typography is paramount (`@tailwindcss/typography`).
     - Support for code blocks with syntax highlighting.
     - Categorization (e.g., "Engineering", "Design", "Tutorials") for easy navigation.
 
-7.  **Contact**
+6.  **Contact**
 
     - A simple, elegant, and responsive contact form with clear validation.
     - Prominently display links to professional profiles: LinkedIn, GitHub, X/Twitter.
     - Optionally include a vCard QR code for easy contact saving.
 
-8.  **Footer**
+7.  **Footer**
 
     - A minimal footer containing copyright information, social links, and a link back to the GitHub repository for this portfolio.
 
-9.  **404 Page**
+8.  **404 Page**
 
     - A custom, on-brand 404 page with a helpful message and a clear button to return to the homepage.
 
-10. **Navbar**
+9.  **Navbar**
     - A persistent, full-height sidebar navigation component.
     - Top-aligned: Avatar and name for personal branding.
     - Center-aligned: Logically grouped navigation links.

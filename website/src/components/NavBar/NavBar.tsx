@@ -6,12 +6,11 @@ import {
   Code,
   FolderGit2,
   Globe,
-  Home,
-  LayoutDashboard,
-  Mail,
   Moon,
   PenSquare,
+  Send,
   Sun,
+  User,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,13 +21,12 @@ import { usePathname } from "next/navigation";
  * Each section is defined with a name, corresponding Lucide icon component, and route path.
  */
 const navSections = [
-  { name: "Home", icon: Home, path: "/" },
-  { name: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+  { name: "About", icon: User, path: "/" },
   { name: "Career", icon: Briefcase, path: "/career" },
   { name: "Projects", icon: FolderGit2, path: "/projects" },
   { name: "Stack", icon: Code, path: "/stack" },
   { name: "Blog", icon: PenSquare, path: "/blog" },
-  { name: "Contact", icon: Mail, path: "/contact" },
+  { name: "Connect", icon: Send, path: "/connect" },
 ];
 
 /**

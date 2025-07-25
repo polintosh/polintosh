@@ -2,7 +2,7 @@
 
 import { colorSystem, useTheme } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
-import { ArrowLeft, Home } from "lucide-react";
+import { Home } from "lucide-react";
 import Link from "next/link";
 
 /**
@@ -79,19 +79,6 @@ export default function NotFound() {
               Go to Homepage
             </motion.button>
           </Link>
-
-          <button
-            onClick={() => window.history.back()}
-            className="flex items-center justify-center gap-3 w-full px-6 py-3 rounded-xl font-baloo font-semibold transition-all"
-            style={{
-              backgroundColor: colors.controlBg,
-              color: colors.textPrimary,
-              border: `1px solid ${colors.border}`,
-            }}
-          >
-            <ArrowLeft size={20} />
-            Go Back
-          </button>
         </motion.div>
       </motion.div>
     </div>
