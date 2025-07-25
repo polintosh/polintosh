@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 // Detect system theme
 const getSystemTheme = () => {
   if (typeof window !== "undefined") {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   }
   return "light";
 };
@@ -35,7 +37,9 @@ export default function SplashScreen() {
     <AnimatePresence>
       {show && (
         <motion.div
-          className={`fixed inset-0 z-50 flex items-center justify-center transition-colors duration-500 ${theme === "dark" ? "bg-black" : "bg-white"}`}
+          className={`fixed inset-0 z-50 flex items-center justify-center transition-colors duration-500 ${
+            theme === "dark" ? "bg-black" : "bg-white"
+          }`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -48,7 +52,10 @@ export default function SplashScreen() {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             {/* Large avatar with loader arc close to the photo */}
-            <div className="relative flex items-center justify-center" style={{ width: 128, height: 128 }}>
+            <div
+              className="relative flex items-center justify-center"
+              style={{ width: 128, height: 128 }}
+            >
               <Image
                 src="/avatar.png" // Placeholder, replace with your image
                 alt="Profile"
