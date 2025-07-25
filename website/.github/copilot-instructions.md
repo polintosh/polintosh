@@ -15,7 +15,7 @@ Create a **minimalistic yet rich** user experience, inspired by Apple, Google, O
 - Icons: **Lucide**, **Tabler**, **Simple Icons**
 - UI Enhancements: `glassmorphism`, `backdrop-blur`, `translucent effects`, and `layered textures`
 - SEO: **next-seo**, schema markup, and meta optimization
-- Deployment: **Vercel**
+- Deployment: **Github Pages**
 - Accessibility: Fully accessible (WAI-ARIA best practices)
 
 ## 🎨 Visual & Interaction Design
@@ -32,62 +32,65 @@ Create a **minimalistic yet rich** user experience, inspired by Apple, Google, O
 
 ## 📂 Content Sections
 
-Structure the site into modular, reusable sections/components:
+Structure the site into modular, reusable sections/components. The navigation should be intuitive, guiding the user through a narrative that balances personality and professional expertise.
 
-1. **Home**
+1.  **Home**
 
-   - Hero with avatar/image, name, role, tagline
-   - CTA buttons, animated scroll indicator
-   - Smooth entrance animations
+    - A captivating hero section featuring an avatar, name, and a concise, powerful tagline (e.g., "Product-minded Software Engineer").
+    - Clear Call-to-Action (CTA) buttons leading to key sections like "Projects" or "Contact".
+    - A subtle, animated scroll indicator to encourage exploration.
 
-2. **Career / Experience**
+2.  **Dashboard**
 
-   - Interactive timeline with role, company, period, technologies
-   - Add micro-animations to emphasize progression
-   - Less formal tone, conversational summaries
+    - A dynamic, at-a-glance view of professional activity. This replaces a static "GitHub Stats" page.
+    - Integrate real-time data via GitHub API: contribution graph, recent activity, pinned repositories.
+    - Potentially include status indicators for ongoing projects (from the Roadmap).
 
-3. **Tech Stack & Skills**
+3.  **Career**
 
-   - Visual grid of logos/icons with hover tooltips
-   - Group skills by category (frontend, backend, tools, etc.)
+    - An interactive, vertical timeline showcasing professional experience.
+    - Each entry should detail the role, company, duration, and key technologies.
+    - Use micro-animations to highlight progression and achievements. The tone should be confident yet approachable.
 
-4. **Projects**
+4.  **Projects**
 
-   - Grid or carousel showcasing each project
-   - Must include: image, tech stack, description, GitHub/demo links
-   - Filterable by tech or category
-   - Include placeholder cards for future apps to tease roadmap
+    - A curated grid or carousel of your most significant work.
+    - Each project card must include a high-quality image/video, a brief description, the tech stack used, and links to the live demo and source code.
+    - Implement filtering by technology or project type.
+    - Include well-designed placeholder cards for upcoming projects to build anticipation.
 
-5. **GitHub Stats**
+5.  **Stack**
 
-   - Use GitHub API or a widget to show contributions, repos, stars
+    - A visually engaging grid of technologies, grouped by category (e.g., Frontend, Backend, DevOps, Design).
+    - Icons should be clean and recognizable. On hover, a tooltip can provide more detail or proficiency level.
 
-6. **Roadmap / Goals**
+6.  **Writing**
 
-   - Dynamic list of upcoming apps and ideas
-   - Personal notes, “in-progress” tags, visual indicators
+    - A dedicated space for articles, tutorials, and thoughts. Replaces a generic "Blog".
+    - Clean, readable typography is paramount (`@tailwindcss/typography`).
+    - Support for code blocks with syntax highlighting.
+    - Categorization (e.g., "Engineering", "Design", "Tutorials") for easy navigation.
 
-7. **Blog**
+7.  **Contact**
 
-   - Markdown or CMS-based blog engine
-   - Categories like "Tutorials", "Opinions", "Teasers", "Product Updates"
-   - Optional social embeds (X, Instagram, YouTube, etc.)
+    - A simple, elegant, and responsive contact form with clear validation.
+    - Prominently display links to professional profiles: LinkedIn, GitHub, X/Twitter.
+    - Optionally include a vCard QR code for easy contact saving.
 
-8. **Contact**
+8.  **Footer**
 
-   - Responsive form with validation
-   - Social media links, LinkedIn, GitHub
-   - Consider adding QR code to CV or business card
+    - A minimal footer containing copyright information, social links, and a link back to the GitHub repository for this portfolio.
 
-9. **404 Page**
+9.  **404 Page**
 
-   - Stylized error message with animation
-   - Button to return home
+    - A custom, on-brand 404 page with a helpful message and a clear button to return to the homepage.
 
-10. **Navbar & Footer**
-    - Sticky, responsive, animated
-    - Navbar with route transitions and scroll-aware behavior
-    - Footer includes legal, GitHub, and social links
+10. **Navbar**
+    - A persistent, full-height sidebar navigation component.
+    - Top-aligned: Avatar and name for personal branding.
+    - Center-aligned: Logically grouped navigation links.
+    - Bottom-aligned: Language selector and a theme (light/dark) switcher.
+    - The entire component should be a single visual element, using glassmorphism for a modern feel.
 
 ## ✨ Splash Screen (Intro Loader)
 

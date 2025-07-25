@@ -3,14 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --accent: #007AFF;
+  --font-baloo: 'Baloo 2', cursive;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Utility classes */
+.text-accent { color: var(--accent); }
+.font-baloo { font-family: var(--font-baloo); }
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -24,3 +23,6 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Headings use Baloo font and accent color */
+/* (Use utility classes .font-baloo and .text-accent for typography) */

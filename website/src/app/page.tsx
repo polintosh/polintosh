@@ -4,8 +4,8 @@ export default function Home() {
       {/* Floating NavBar (import in layout for global use) */}
       <div className="mb-24" />
       {/* Home Section Placeholder */}
-      <main className="flex flex-col items-center justify-center gap-6 p-8 rounded-3xl shadow-xl backdrop-blur-xl border border-white/20 bg-white/60 dark:bg-black/40 transition-all">
-        <h1 className="text-3xl font-bold tracking-tight text-center text-black dark:text-white mb-2">
+      <main className="flex flex-col items-center justify-center gap-6 p-8 rounded-xl shadow-lg backdrop-blur-lg border border-white/20 bg-white/30 dark:border-black/20 dark:bg-black/30 transition-all">
+        <h1 className="text-5xl font-baloo text-accent text-center mb-4">
           Home
         </h1>
         <p className="text-base text-center text-gray-700 dark:text-gray-300">
