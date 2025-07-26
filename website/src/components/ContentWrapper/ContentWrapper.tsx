@@ -1,7 +1,5 @@
 "use client";
 
-import { colorSystem, useTheme } from "@/contexts/ThemeContext";
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface ContentWrapperProps {
@@ -10,48 +8,14 @@ interface ContentWrapperProps {
 }
 
 /**
- * Automatic content wrapper that handles:
- * - Proper spacing from fixed NavBar
- * - Full-height scrollable area
- * - Theme-aware background transitions with enhanced colors
- * - Responsive padding and margins
- * - Dynamic system theme support
+ * Simplified content wrapper that:
+ * - Provides proper spacing from fixed NavBar (ml-64)
+ * - Allows full-screen backgrounds to extend behind NavBar
+ * - Maintains content positioning without background restrictions
  */
 export default function ContentWrapper({
   children,
   className = "",
 }: ContentWrapperProps) {
-  const { theme } = useTheme();
-  const colors = colorSystem[theme];
-
-  return (
-    <motion.div
-      className={`
-        min-h-screen
-        ml-64
-        transition-all duration-300 ease-in-out
-        ${className}
-      `}
-      style={{
-        backgroundColor: colors.pageBackground,
-        color: colors.textPrimary,
-      }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-    >
-      {/* Content area with proper scrolling */}
-      <div className="relative h-screen overflow-y-auto">
-        <div
-          className="px-8 py-6"
-          style={{
-            minHeight: "100vh",
-            backgroundColor: colors.pageBackground,
-          }}
-        >
-          {children}
-        </div>
-      </div>
-    </motion.div>
-  );
+  return <div className={`ml-64 ${className}`}>{children}</div>;
 }

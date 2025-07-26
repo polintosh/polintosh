@@ -330,7 +330,7 @@ export default function ConnectPage() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <Link href="https://cal.com/polintosh/30min">
+              <Link href="https://cal.com/pol-hernandez-benet/30min">
                 <motion.button
                   className="inline-flex items-center px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 backdrop-blur-2xl border group"
                   style={{

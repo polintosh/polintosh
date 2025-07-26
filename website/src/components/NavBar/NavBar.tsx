@@ -56,7 +56,7 @@ export default function NavBar({
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 h-screen p-4 z-40"
+      className="fixed top-0 left-0 h-screen p-4 z-50"
       initial={{ x: -280, opacity: 0 }}
       animate={!isSplashActive ? { x: 0, opacity: 1 } : { x: -280, opacity: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -65,8 +65,8 @@ export default function NavBar({
       <div
         className="flex flex-col h-full w-60 p-4 rounded-2xl backdrop-blur-2xl shadow-2xl relative overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, ${colors.background}95, ${colors.background}85)`,
-          border: `1px solid ${colors.border}`,
+          background: `linear-gradient(135deg, ${colors.background}75, ${colors.background}65)`,
+          border: `1px solid ${colors.border}80`,
           boxShadow: `0 16px 48px ${colors.shadow}`,
         }}
       >
