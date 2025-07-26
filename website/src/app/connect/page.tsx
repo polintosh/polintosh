@@ -57,132 +57,45 @@ export default function ConnectPage() {
     <>
       {/* Full-screen background that extends behind NavBar */}
       <div className="fixed inset-0 z-0">
-        {/* Apple/OpenAI Style Background with Infinite Edge Fade */}
+        {/* Apple Design Static Background */}
         <div
           className="absolute inset-0"
           style={{
             background:
               theme === "dark"
-                ? "radial-gradient(ellipse 120% 120% at 50% 50%, #000000 0%, #0a0a0a 20%, #111111 40%, #0a0a0a 60%, #000000 80%, #000000 100%)"
-                : "radial-gradient(ellipse 120% 120% at 50% 50%, #ffffff 0%, #f8fafc 20%, #f1f5f9 40%, #f8fafc 60%, #ffffff 80%, #ffffff 100%)",
+                ? `
+                  radial-gradient(ellipse 150% 100% at 50% 0%, rgba(15, 15, 15, 1) 0%, rgba(0, 0, 0, 1) 50%),
+                  radial-gradient(ellipse 120% 120% at 20% 80%, rgba(59, 130, 246, 0.04) 0%, transparent 60%),
+                  radial-gradient(ellipse 120% 120% at 80% 20%, rgba(168, 85, 247, 0.03) 0%, transparent 60%),
+                  radial-gradient(ellipse 100% 100% at 50% 50%, rgba(99, 102, 241, 0.02) 0%, transparent 70%),
+                  #000000
+                `
+                : `
+                  radial-gradient(ellipse 150% 100% at 50% 0%, rgba(250, 250, 250, 1) 0%, rgba(255, 255, 255, 1) 50%),
+                  radial-gradient(ellipse 120% 120% at 20% 80%, rgba(59, 130, 246, 0.02) 0%, transparent 60%),
+                  radial-gradient(ellipse 120% 120% at 80% 20%, rgba(168, 85, 247, 0.015) 0%, transparent 60%),
+                  radial-gradient(ellipse 100% 100% at 50% 50%, rgba(99, 102, 241, 0.01) 0%, transparent 70%),
+                  #ffffff
+                `,
           }}
         >
-          {/* Animated spotlight mesh gradients */}
-          <motion.div
-            className="absolute inset-0"
-            style={{
-              background:
-                theme === "dark"
-                  ? `
-                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%),
-                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%),
-                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.07) 40%, transparent 70%),
-                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.13) 0%, rgba(59, 130, 246, 0.06) 40%, transparent 70%)
-              `
-                  : `
-                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%),
-                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.06) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%),
-                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.035) 40%, transparent 70%),
-                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.065) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%)
-              `,
-            }}
-            animate={{
-              background:
-                theme === "dark"
-                  ? [
-                      `
-                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%),
-                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%),
-                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.07) 40%, transparent 70%),
-                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.13) 0%, rgba(59, 130, 246, 0.06) 40%, transparent 70%)
-              `,
-                      `
-                radial-gradient(ellipse 50% 60% at 80% 25%, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0.08) 40%, transparent 70%),
-                radial-gradient(ellipse 65% 45% at 25% 75%, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.06) 40%, transparent 70%),
-                radial-gradient(ellipse 55% 55% at 75% 60%, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.07) 40%, transparent 70%),
-                radial-gradient(ellipse 60% 40% at 15% 35%, rgba(168, 85, 247, 0.13) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%)
-              `,
-                      `
-                radial-gradient(ellipse 70% 50% at 60% 15%, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.08) 40%, transparent 70%),
-                radial-gradient(ellipse 45% 65% at 15% 85%, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%),
-                radial-gradient(ellipse 60% 45% at 85% 40%, rgba(59, 130, 246, 0.14) 0%, rgba(59, 130, 246, 0.07) 40%, transparent 70%),
-                radial-gradient(ellipse 50% 55% at 40% 80%, rgba(99, 102, 241, 0.13) 0%, rgba(99, 102, 241, 0.06) 40%, transparent 70%)
-              `,
-                      `
-                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%),
-                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%),
-                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.07) 40%, transparent 70%),
-                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.13) 0%, rgba(59, 130, 246, 0.06) 40%, transparent 70%)
-              `,
-                    ]
-                  : [
-                      `
-                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%),
-                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.06) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%),
-                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.035) 40%, transparent 70%),
-                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.065) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%)
-              `,
-                      `
-                radial-gradient(ellipse 50% 60% at 80% 25%, rgba(168, 85, 247, 0.08) 0%, rgba(168, 85, 247, 0.04) 40%, transparent 70%),
-                radial-gradient(ellipse 65% 45% at 25% 75%, rgba(59, 130, 246, 0.06) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%),
-                radial-gradient(ellipse 55% 55% at 75% 60%, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.035) 40%, transparent 70%),
-                radial-gradient(ellipse 60% 40% at 15% 35%, rgba(168, 85, 247, 0.065) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%)
-              `,
-                      `
-                radial-gradient(ellipse 70% 50% at 60% 15%, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.04) 40%, transparent 70%),
-                radial-gradient(ellipse 45% 65% at 15% 85%, rgba(168, 85, 247, 0.06) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%),
-                radial-gradient(ellipse 60% 45% at 85% 40%, rgba(59, 130, 246, 0.07) 0%, rgba(59, 130, 246, 0.035) 40%, transparent 70%),
-                radial-gradient(ellipse 50% 55% at 40% 80%, rgba(99, 102, 241, 0.065) 0%, rgba(99, 102, 241, 0.03) 40%, transparent 70%)
-              `,
-                      `
-                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%),
-                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.06) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%),
-                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.035) 40%, transparent 70%),
-                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.065) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%)
-              `,
-                    ],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-
-          {/* Edge fade overlay for infinite effect */}
+          {/* Subtle grain texture for premium feel */}
           <div
-            className="absolute inset-0"
-            style={{
-              background:
-                theme === "dark"
-                  ? `
-                linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.4) 100%),
-                linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 10%, transparent 90%, rgba(0,0,0,0.3) 100%)
-              `
-                  : `
-                linear-gradient(to right, rgba(255,255,255,0.6) 0%, transparent 15%, transparent 85%, rgba(255,255,255,0.6) 100%),
-                linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, transparent 10%, transparent 90%, rgba(255,255,255,0.4) 100%)
-              `,
-            }}
-          />
-
-          {/* Subtle noise texture overlay */}
-          <div
-            className="absolute inset-0 opacity-15"
+            className="absolute inset-0 opacity-25"
             style={{
               backgroundImage:
                 theme === "dark"
-                  ? "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0)"
-                  : "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.015) 1px, transparent 0)",
-              backgroundSize: "24px 24px",
+                  ? "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0)"
+                  : "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.01) 1px, transparent 0)",
+              backgroundSize: "20px 20px",
             }}
           />
         </div>
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 min-h-screen px-8 py-6">
-        <div className="flex items-center justify-center min-h-screen">
+      {/* Content Container - No scroll, fixed height */}
+      <div className="relative z-10 h-screen overflow-hidden px-8 py-6">
+        <div className="flex items-center justify-center h-full">
           <div className="text-center">
             {/* Title Section */}
             <motion.div
