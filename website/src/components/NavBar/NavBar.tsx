@@ -65,7 +65,7 @@ export default function NavBar({
       <div
         className="flex flex-col h-full w-60 p-4 rounded-2xl backdrop-blur-2xl shadow-2xl relative overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, ${colors.background}85, ${colors.background}80)`,
+          background: `linear-gradient(135deg, ${colors.background.solid}85, ${colors.background.solid}80)`,
           border: `1.5px solid ${colors.border}95`,
           boxShadow:
             theme === "dark"

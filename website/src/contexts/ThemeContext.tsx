@@ -138,7 +138,10 @@ export const colorSystem = {
   light: {
     // Backgrounds
     pageBackground: "#ffffff",
-    background: "#ffffff",
+    background: {
+      solid: "#ffffff",
+      gradient: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+    },
 
     // Text colors
     textPrimary: "#000000",
@@ -148,11 +151,17 @@ export const colorSystem = {
     border: "#e5e7eb",
     accent: "#3b82f6",
     controlBg: "#f3f4f6",
+
+    // Splash screen specific
+    loader: "#3b82f6",
   },
   dark: {
     // Backgrounds
     pageBackground: "#0f0f0f",
-    background: "#1f1f1f",
+    background: {
+      solid: "#1f1f1f",
+      gradient: "linear-gradient(135deg, #0f0f0f 0%, #1f1f1f 100%)",
+    },
 
     // Text colors
     textPrimary: "#ffffff",
@@ -162,5 +171,8 @@ export const colorSystem = {
     border: "#374151",
     accent: "#60a5fa",
     controlBg: "#27272a",
+
+    // Splash screen specific
+    loader: "#60a5fa",
   },
 } as const;
