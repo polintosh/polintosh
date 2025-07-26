@@ -34,12 +34,12 @@ export default function ClientLayout({
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="fixed top-0 right-0 h-screen w-[80vw] p-4 z-40"
+            className="fixed top-0 right-0 h-screen w-[80vw] p-2 z-40 overflow-hidden"
           >
             <div
-              className="flex flex-col h-full w-full p-4 rounded-2xl backdrop-blur-2xl shadow-2xl relative overflow-hidden"
+              className="flex flex-col h-full w-full p-4 rounded-2xl shadow-2xl relative overflow-hidden"
               style={{
-                background: `linear-gradient(135deg, ${colors.background.solid}85, ${colors.background.solid}80)`,
+                backgroundColor: colors.background.solid,
                 border: `1.5px solid ${colors.border}95`,
                 boxShadow:
                   theme === "dark"

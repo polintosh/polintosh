@@ -5,6 +5,7 @@ import {
   Briefcase,
   Code,
   FolderGit2,
+  Loader2,
   Moon,
   PenSquare,
   Send,
@@ -14,6 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 /**
  * Navigation structure definition.
@@ -46,6 +48,19 @@ export default function NavBar({
 }) {
   const { theme, setTheme, isSystemTheme } = useTheme();
   const pathname = usePathname();
+  // Show a brief 'Synced' indicator when the system theme changes
+  const [showSync, setShowSync] = useState(false);
+
+  useEffect(() => {
+    if (!isSystemTheme) return;
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleSystemChange = () => {
+      setShowSync(true);
+      setTimeout(() => setShowSync(false), 2000);
+    };
+    mediaQuery.addEventListener("change", handleSystemChange);
+    return () => mediaQuery.removeEventListener("change", handleSystemChange);
+  }, [isSystemTheme]);
 
   const handleThemeToggle = (newTheme: "light" | "dark") => {
     setTheme(newTheme);
@@ -55,16 +70,16 @@ export default function NavBar({
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 h-screen p-4 z-50 w-[20vw] min-w-[240px]"
+      className="fixed top-0 left-0 h-screen p-2 z-50 w-[20vw] min-w-[240px]"
       initial={{ x: -280, opacity: 0 }}
       animate={!isSplashActive ? { x: 0, opacity: 1 } : { x: -280, opacity: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       aria-label="Main navigation"
     >
       <div
-        className="flex flex-col h-full w-full p-4 rounded-2xl backdrop-blur-2xl shadow-2xl relative overflow-hidden"
+        className="flex flex-col h-full w-full p-2 rounded-2xl backdrop-blur-2xl shadow-2xl relative overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, ${colors.background.solid}85, ${colors.background.solid}80)`,
+          backgroundColor: colors.background.solid,
           border: `1.5px solid ${colors.border}95`,
           boxShadow:
             theme === "dark"
@@ -147,8 +162,8 @@ export default function NavBar({
 
         {/* Utility Controls: Theme & Language */}
         <div className="space-y-2 pt-6 pb-2">
-          {/* System Theme Indicator */}
-          {isSystemTheme && (
+          {/* Show system-following indicator only when not syncing */}
+          {!showSync && isSystemTheme && (
             <div
               className="text-xs text-center py-1 px-2 rounded-md"
               style={{
@@ -159,57 +174,71 @@ export default function NavBar({
               Following system theme
             </div>
           )}
-
-          {/* Segmented Control for Theme */}
-          <div
-            className="grid grid-cols-2 gap-1 p-1 rounded-lg"
-            style={{ backgroundColor: colors.controlBg }}
-          >
-            <button
-              onClick={() => handleThemeToggle("light")}
-              className={`relative flex justify-center items-center p-1.5 rounded-md`}
+          {/* Transient sync message on system change */}
+          {showSync && (
+            <div
+              className="flex items-center justify-center gap-2 text-sm py-1 px-2 rounded-md"
+              style={{
+                backgroundColor: colors.controlBg,
+                color: colors.textPrimary,
+              }}
             >
-              {theme === "light" && (
-                <motion.div
-                  layoutId="theme-bg"
-                  className="absolute inset-0 bg-white dark:bg-gray-600 rounded-md shadow-sm"
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
-              <Sun
-                size={18}
-                className="relative z-10"
-                style={{
-                  color:
-                    theme === "light"
-                      ? colors.textPrimary
-                      : colors.textSecondary,
-                }}
-              />
-            </button>
-            <button
-              onClick={() => handleThemeToggle("dark")}
-              className={`relative flex justify-center items-center p-1.5 rounded-md`}
+              <Loader2 size={16} className="animate-spin" />
+              <span>Synced</span>
+            </div>
+          )}
+          {/* Segmented Control for Theme, hidden while syncing */}
+          {!showSync && (
+            <div
+              className="grid grid-cols-2 gap-1 p-1 rounded-lg"
+              style={{ backgroundColor: colors.controlBg }}
             >
-              {theme === "dark" && (
-                <motion.div
-                  layoutId="theme-bg"
-                  className="absolute inset-0 bg-white dark:bg-gray-600 rounded-md shadow-sm"
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              <button
+                onClick={() => handleThemeToggle("light")}
+                className={`relative flex justify-center items-center p-1.5 rounded-md`}
+              >
+                {theme === "light" && (
+                  <motion.div
+                    layoutId="theme-bg"
+                    className="absolute inset-0 bg-white dark:bg-gray-600 rounded-md shadow-sm"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                <Sun
+                  size={18}
+                  className="relative z-10"
+                  style={{
+                    color:
+                      theme === "light"
+                        ? colors.textPrimary
+                        : colors.textSecondary,
+                  }}
                 />
-              )}
-              <Moon
-                size={18}
-                className="relative z-10"
-                style={{
-                  color:
-                    theme === "dark"
-                      ? colorSystem.light.textPrimary // Black icon on white toggle
-                      : colors.textSecondary,
-                }}
-              />
-            </button>
-          </div>
+              </button>
+              <button
+                onClick={() => handleThemeToggle("dark")}
+                className={`relative flex justify-center items-center p-1.5 rounded-md`}
+              >
+                {theme === "dark" && (
+                  <motion.div
+                    layoutId="theme-bg"
+                    className="absolute inset-0 bg-white dark:bg-gray-600 rounded-md shadow-sm"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                <Moon
+                  size={18}
+                  className="relative z-10"
+                  style={{
+                    color:
+                      theme === "dark"
+                        ? colorSystem.light.textPrimary // Black icon on white toggle
+                        : colors.textSecondary,
+                  }}
+                />
+              </button>
+            </div>
+          )}
           {/*
           // Language Selector
           <button

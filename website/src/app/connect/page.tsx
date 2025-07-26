@@ -95,7 +95,7 @@ export default function ConnectPage() {
       </div>
 
       {/* Content Container - No scroll, fixed height */}
-      <div className="relative z-10 h-screen overflow-hidden px-8 py-6">
+      <div className="relative z-10 h-screen overflow-hidden px-4 py-3">
         <div className="flex items-center justify-center h-full">
           <div className="text-center">
             {/* Title Section */}
