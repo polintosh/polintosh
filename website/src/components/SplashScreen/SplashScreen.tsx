@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { colorSystem } from "../../context/ThemeContext";
+import { colorSystem } from "../../contexts/ThemeContext";
 
 /**
  * Detects user's system theme preference

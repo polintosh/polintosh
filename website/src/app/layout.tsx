@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 const baloo = Baloo_2({
-  weight: ["400"], // Reduce to only one variant for performance
+  weight: ["400", "700"], // Include both regular and bold weights for design consistency
   subsets: ["latin"],
   variable: "--font-baloo",
   display: "swap",

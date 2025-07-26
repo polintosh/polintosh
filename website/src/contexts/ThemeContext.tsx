@@ -133,5 +133,34 @@ export function useTheme() {
   return context;
 }
 
-// Import colorSystem from shared design tokens
-import { colorSystem } from "../designTokens/colorSystem";
+// Complete color system following the design instructions
+export const colorSystem = {
+  light: {
+    // Backgrounds
+    pageBackground: "#ffffff",
+    background: "#ffffff",
+
+    // Text colors
+    textPrimary: "#000000",
+    textSecondary: "#6b7280",
+
+    // UI elements
+    border: "#e5e7eb",
+    accent: "#3b82f6",
+    controlBg: "#f3f4f6",
+  },
+  dark: {
+    // Backgrounds
+    pageBackground: "#0f0f0f",
+    background: "#1f1f1f",
+
+    // Text colors
+    textPrimary: "#ffffff",
+    textSecondary: "#a1a1aa",
+
+    // UI elements
+    border: "#374151",
+    accent: "#60a5fa",
+    controlBg: "#27272a",
+  },
+} as const;
