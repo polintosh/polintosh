@@ -27,8 +27,8 @@ export default function ContentWrapper({
   const colors = colorSystem[theme];
 
   const baseClasses = fullScreen
-    ? "p-8 md:p-12 lg:p-16"
-    : "ml-80 p-8 md:p-12 lg:p-16";
+    ? "w-full p-8 md:p-12 lg:p-16"
+    : "ml-[20vw] w-[80vw] p-8 md:p-12 lg:p-16";
 
   return (
     <motion.main
@@ -36,7 +36,7 @@ export default function ContentWrapper({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className={`${baseClasses} ${className}`}
+      className={`${baseClasses} w-full ${className}`}
     >
       {(title || description) && (
         <div className="mb-8 md:mb-12 text-center">

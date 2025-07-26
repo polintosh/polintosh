@@ -55,14 +55,14 @@ export default function NavBar({
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 h-screen p-4 z-50"
+      className="fixed top-0 left-0 h-screen p-4 z-50 w-[20vw] min-w-[240px]"
       initial={{ x: -280, opacity: 0 }}
       animate={!isSplashActive ? { x: 0, opacity: 1 } : { x: -280, opacity: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       aria-label="Main navigation"
     >
       <div
-        className="flex flex-col h-full w-60 p-4 rounded-2xl backdrop-blur-2xl shadow-2xl relative overflow-hidden"
+        className="flex flex-col h-full w-full p-4 rounded-2xl backdrop-blur-2xl shadow-2xl relative overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${colors.background.solid}85, ${colors.background.solid}80)`,
           border: `1.5px solid ${colors.border}95`,
