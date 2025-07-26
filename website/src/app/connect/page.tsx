@@ -10,18 +10,19 @@ export default function ConnectPage() {
   const { theme } = useTheme();
   const colors = colorSystem[theme];
 
+  // Social links with adaptive icons based on theme
   const socialLinks = [
     {
       name: "LinkedIn",
-      icon: "/icons/socials/linkedin.svg",
-      url: "https://www.linkedin.com/in/pol-hernandez-benet/",
+      icon: "/icons/linkedin.svg",
+      url: "https://www.linkedin.com/in/pol-hernàndez-319518299/",
       color: "#0A66C2",
       position: "top",
       rotation: -8,
     },
     {
-      name: "GitHub",
-      icon: "/icons/socials/github.svg",
+      name: "GitHub", 
+      icon: theme === "dark" ? "/icons/github-dark.svg" : "/icons/github-light.svg",
       url: "https://github.com/polintosh",
       color: theme === "light" ? "#181717" : "#F0F6FF",
       position: "bottom-left",
@@ -29,9 +30,9 @@ export default function ConnectPage() {
     },
     {
       name: "X",
-      icon: "/icons/socials/twitter.svg",
-      url: "https://x.com/polhbenet",
-      color: "#000000",
+      icon: theme === "dark" ? "/icons/x-dark.svg" : "/icons/x-light.svg", 
+      url: "https://x.com/polintosh",
+      color: theme === "light" ? "#000000" : "#FFFFFF",
       position: "bottom-right",
       rotation: -6,
     },
@@ -53,57 +54,124 @@ export default function ConnectPage() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Apple/OpenAI Style Background */}
+      {/* Apple/OpenAI Style Background with Infinite Edge Fade */}
       <div
         className="absolute inset-0"
         style={{
           background:
             theme === "dark"
-              ? "linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #111111 50%, #0a0a0a 75%, #000000 100%)"
-              : "linear-gradient(135deg, #ffffff 0%, #f8fafc 25%, #f1f5f9 50%, #f8fafc 75%, #ffffff 100%)",
+              ? "radial-gradient(ellipse 120% 120% at 50% 50%, #000000 0%, #0a0a0a 20%, #111111 40%, #0a0a0a 60%, #000000 80%, #000000 100%)"
+              : "radial-gradient(ellipse 120% 120% at 50% 50%, #ffffff 0%, #f8fafc 20%, #f1f5f9 40%, #f8fafc 60%, #ffffff 80%, #ffffff 100%)",
         }}
       >
-        {/* Subtle animated mesh gradient */}
+        {/* Animated spotlight mesh gradients */}
         <motion.div
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0"
           style={{
             background:
               theme === "dark"
-                ? "radial-gradient(ellipse 80% 50% at 50% 120%, rgba(59, 130, 246, 0.12), transparent), radial-gradient(ellipse 60% 80% at 20% 30%, rgba(168, 85, 247, 0.08), transparent), radial-gradient(ellipse 100% 60% at 80% 70%, rgba(99, 102, 241, 0.1), transparent)"
-                : "radial-gradient(ellipse 80% 50% at 50% 120%, rgba(59, 130, 246, 0.08), transparent), radial-gradient(ellipse 60% 80% at 20% 30%, rgba(168, 85, 247, 0.05), transparent), radial-gradient(ellipse 100% 60% at 80% 70%, rgba(99, 102, 241, 0.06), transparent)",
+                ? `
+                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%),
+                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.07) 40%, transparent 70%),
+                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.13) 0%, rgba(59, 130, 246, 0.06) 40%, transparent 70%)
+              `
+                : `
+                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.06) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%),
+                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.035) 40%, transparent 70%),
+                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.065) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%)
+              `,
           }}
           animate={{
             background:
               theme === "dark"
                 ? [
-                    "radial-gradient(ellipse 80% 50% at 50% 120%, rgba(59, 130, 246, 0.12), transparent), radial-gradient(ellipse 60% 80% at 20% 30%, rgba(168, 85, 247, 0.08), transparent), radial-gradient(ellipse 100% 60% at 80% 70%, rgba(99, 102, 241, 0.1), transparent)",
-                    "radial-gradient(ellipse 60% 60% at 40% 100%, rgba(168, 85, 247, 0.12), transparent), radial-gradient(ellipse 80% 80% at 80% 20%, rgba(59, 130, 246, 0.08), transparent), radial-gradient(ellipse 90% 50% at 20% 80%, rgba(99, 102, 241, 0.1), transparent)",
-                    "radial-gradient(ellipse 90% 70% at 60% 110%, rgba(99, 102, 241, 0.12), transparent), radial-gradient(ellipse 70% 60% at 10% 40%, rgba(59, 130, 246, 0.08), transparent), radial-gradient(ellipse 80% 80% at 90% 60%, rgba(168, 85, 247, 0.1), transparent)",
-                    "radial-gradient(ellipse 80% 50% at 50% 120%, rgba(59, 130, 246, 0.12), transparent), radial-gradient(ellipse 60% 80% at 20% 30%, rgba(168, 85, 247, 0.08), transparent), radial-gradient(ellipse 100% 60% at 80% 70%, rgba(99, 102, 241, 0.1), transparent)",
+                    `
+                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%),
+                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.07) 40%, transparent 70%),
+                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.13) 0%, rgba(59, 130, 246, 0.06) 40%, transparent 70%)
+              `,
+                    `
+                radial-gradient(ellipse 50% 60% at 80% 25%, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0.08) 40%, transparent 70%),
+                radial-gradient(ellipse 65% 45% at 25% 75%, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.06) 40%, transparent 70%),
+                radial-gradient(ellipse 55% 55% at 75% 60%, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.07) 40%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 15% 35%, rgba(168, 85, 247, 0.13) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%)
+              `,
+                    `
+                radial-gradient(ellipse 70% 50% at 60% 15%, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.08) 40%, transparent 70%),
+                radial-gradient(ellipse 45% 65% at 15% 85%, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%),
+                radial-gradient(ellipse 60% 45% at 85% 40%, rgba(59, 130, 246, 0.14) 0%, rgba(59, 130, 246, 0.07) 40%, transparent 70%),
+                radial-gradient(ellipse 50% 55% at 40% 80%, rgba(99, 102, 241, 0.13) 0%, rgba(99, 102, 241, 0.06) 40%, transparent 70%)
+              `,
+                    `
+                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.12) 0%, rgba(168, 85, 247, 0.06) 40%, transparent 70%),
+                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.07) 40%, transparent 70%),
+                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.13) 0%, rgba(59, 130, 246, 0.06) 40%, transparent 70%)
+              `,
                   ]
                 : [
-                    "radial-gradient(ellipse 80% 50% at 50% 120%, rgba(59, 130, 246, 0.08), transparent), radial-gradient(ellipse 60% 80% at 20% 30%, rgba(168, 85, 247, 0.05), transparent), radial-gradient(ellipse 100% 60% at 80% 70%, rgba(99, 102, 241, 0.06), transparent)",
-                    "radial-gradient(ellipse 60% 60% at 40% 100%, rgba(168, 85, 247, 0.08), transparent), radial-gradient(ellipse 80% 80% at 80% 20%, rgba(59, 130, 246, 0.05), transparent), radial-gradient(ellipse 90% 50% at 20% 80%, rgba(99, 102, 241, 0.06), transparent)",
-                    "radial-gradient(ellipse 90% 70% at 60% 110%, rgba(99, 102, 241, 0.08), transparent), radial-gradient(ellipse 70% 60% at 10% 40%, rgba(59, 130, 246, 0.05), transparent), radial-gradient(ellipse 80% 80% at 90% 60%, rgba(168, 85, 247, 0.06), transparent)",
-                    "radial-gradient(ellipse 80% 50% at 50% 120%, rgba(59, 130, 246, 0.08), transparent), radial-gradient(ellipse 60% 80% at 20% 30%, rgba(168, 85, 247, 0.05), transparent), radial-gradient(ellipse 100% 60% at 80% 70%, rgba(99, 102, 241, 0.06), transparent)",
+                    `
+                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.06) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%),
+                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.035) 40%, transparent 70%),
+                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.065) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%)
+              `,
+                    `
+                radial-gradient(ellipse 50% 60% at 80% 25%, rgba(168, 85, 247, 0.08) 0%, rgba(168, 85, 247, 0.04) 40%, transparent 70%),
+                radial-gradient(ellipse 65% 45% at 25% 75%, rgba(59, 130, 246, 0.06) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%),
+                radial-gradient(ellipse 55% 55% at 75% 60%, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.035) 40%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 15% 35%, rgba(168, 85, 247, 0.065) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%)
+              `,
+                    `
+                radial-gradient(ellipse 70% 50% at 60% 15%, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.04) 40%, transparent 70%),
+                radial-gradient(ellipse 45% 65% at 15% 85%, rgba(168, 85, 247, 0.06) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%),
+                radial-gradient(ellipse 60% 45% at 85% 40%, rgba(59, 130, 246, 0.07) 0%, rgba(59, 130, 246, 0.035) 40%, transparent 70%),
+                radial-gradient(ellipse 50% 55% at 40% 80%, rgba(99, 102, 241, 0.065) 0%, rgba(99, 102, 241, 0.03) 40%, transparent 70%)
+              `,
+                    `
+                radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.04) 40%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 70% 30%, rgba(168, 85, 247, 0.06) 0%, rgba(168, 85, 247, 0.03) 40%, transparent 70%),
+                radial-gradient(ellipse 70% 50% at 20% 70%, rgba(99, 102, 241, 0.07) 0%, rgba(99, 102, 241, 0.035) 40%, transparent 70%),
+                radial-gradient(ellipse 55% 45% at 80% 80%, rgba(59, 130, 246, 0.065) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%)
+              `,
                   ],
           }}
           transition={{
-            duration: 20,
+            duration: 25,
             repeat: Infinity,
             ease: "linear",
           }}
         />
 
+        {/* Edge fade overlay for infinite effect */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              theme === "dark"
+                ? `
+                linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.4) 100%),
+                linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 10%, transparent 90%, rgba(0,0,0,0.3) 100%)
+              `
+                : `
+                linear-gradient(to right, rgba(255,255,255,0.6) 0%, transparent 15%, transparent 85%, rgba(255,255,255,0.6) 100%),
+                linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, transparent 10%, transparent 90%, rgba(255,255,255,0.4) 100%)
+              `,
+          }}
+        />
+
         {/* Subtle noise texture overlay */}
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-15"
           style={{
             backgroundImage:
               theme === "dark"
-                ? "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)"
-                : "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.02) 1px, transparent 0)",
-            backgroundSize: "20px 20px",
+                ? "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0)"
+                : "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.015) 1px, transparent 0)",
+            backgroundSize: "24px 24px",
           }}
         />
       </div>
@@ -211,6 +279,7 @@ export default function ConnectPage() {
                   >
                     <div className="relative">
                       <Image
+                        key={`${link.name}-${theme}`}
                         src={link.icon}
                         alt={link.name}
                         width={32}
