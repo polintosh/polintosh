@@ -1,5 +1,4 @@
 "use client";
-import { SOCIAL_LINKS } from "@/config/socialLinks";
 import { colorSystem, useTheme } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import {
@@ -222,7 +221,7 @@ export default function NavBar({
             <Globe size={16} />
             <span>English</span>
           </button>
-          {/* Cal.com booking link */}
+          {/* Cal.com booking link
           <a
             href={SOCIAL_LINKS.cal}
             target="_blank"
@@ -237,6 +236,7 @@ export default function NavBar({
             <Send size={16} />
             <span>Book a call</span>
           </a>
+          */}
         </div>
       </div>
     </motion.nav>
