@@ -7,17 +7,20 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const baloo = Baloo_2({
-  weight: ["400", "700"],
+  weight: ["400"], // Reduce to only one variant for performance
   subsets: ["latin"],
   variable: "--font-baloo",
+  display: "swap",
 });
 
 export const metadata: Metadata = {

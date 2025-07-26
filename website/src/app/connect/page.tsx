@@ -1,5 +1,6 @@
 "use client";
 
+import { SOCIAL_LINKS } from "@/config/socialLinks";
 import { colorSystem, useTheme } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
@@ -15,7 +16,7 @@ export default function ConnectPage() {
     {
       name: "LinkedIn",
       icon: "/icons/linkedin.svg",
-      url: "https://www.linkedin.com/in/pol-hernàndez-319518299/",
+      url: SOCIAL_LINKS.linkedin,
       color: "#0A66C2",
       position: "top",
       rotation: -8,
@@ -24,7 +25,7 @@ export default function ConnectPage() {
       name: "GitHub",
       icon:
         theme === "dark" ? "/icons/github-dark.svg" : "/icons/github-light.svg",
-      url: "https://github.com/polintosh",
+      url: SOCIAL_LINKS.github,
       color: theme === "light" ? "#181717" : "#F0F6FF",
       position: "bottom-left",
       rotation: 12,
@@ -32,7 +33,7 @@ export default function ConnectPage() {
     {
       name: "X",
       icon: theme === "dark" ? "/icons/x-dark.svg" : "/icons/x-light.svg",
-      url: "https://x.com/polintosh",
+      url: SOCIAL_LINKS.x,
       color: theme === "light" ? "#000000" : "#FFFFFF",
       position: "bottom-right",
       rotation: -6,
@@ -243,7 +244,7 @@ export default function ConnectPage() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <Link href="https://cal.com/polintosh/30min">
+              <Link href={SOCIAL_LINKS.cal}>
                 <motion.button
                   className="inline-flex items-center px-10 py-5 rounded-2xl font-semibold text-lg transition-all duration-300 backdrop-blur-2xl border group"
                   style={{

@@ -1,4 +1,5 @@
 "use client";
+import { CALCOM_BOOKING_URL } from "@/config/calcom";
 import { colorSystem, useTheme } from "@/contexts/ThemeContext";
 import { motion } from "framer-motion";
 import {
@@ -221,6 +222,21 @@ export default function NavBar({
             <Globe size={16} />
             <span>English</span>
           </button>
+          {/* Cal.com booking link */}
+          <a
+            href={CALCOM_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full p-2 rounded-lg font-baloo font-semibold text-sm mt-2"
+            style={{
+              backgroundColor: colors.controlBg,
+              color: colors.textSecondary,
+              textDecoration: "none",
+            }}
+          >
+            <Send size={16} />
+            <span>Book a call</span>
+          </a>
         </div>
       </div>
     </motion.nav>

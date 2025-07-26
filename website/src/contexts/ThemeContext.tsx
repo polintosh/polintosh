@@ -77,9 +77,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       document.documentElement.style.transition =
         "background-color 0.3s ease, color 0.3s ease";
 
-      // Apply background color to body for full coverage
-      document.body.style.backgroundColor = colorSystem[theme].pageBackground;
-      document.body.style.color = colorSystem[theme].textPrimary;
+      // Apply theme colors using CSS custom properties for full coverage
+      document.documentElement.style.setProperty(
+        "--page-background",
+        colorSystem[theme].pageBackground
+      );
+      document.documentElement.style.setProperty(
+        "--text-primary",
+        colorSystem[theme].textPrimary
+      );
     }
   }, [theme, isMounted]);
 
@@ -127,29 +133,5 @@ export function useTheme() {
   return context;
 }
 
-/**
- * System-level color configuration for consistent theming.
- * Enhanced colors for better contrast and glassmorphism effects.
- */
-export const colorSystem = {
-  light: {
-    background: "rgba(255, 255, 255, 0.80)",
-    border: "rgba(0, 0, 0, 0.08)",
-    shadow: "rgba(0, 0, 0, 0.12)",
-    textPrimary: "#1D1D1F",
-    textSecondary: "rgba(60, 60, 67, 0.85)",
-    accent: "#007AFF",
-    controlBg: "rgba(0, 0, 0, 0.05)",
-    pageBackground: "#F2F2F7",
-  },
-  dark: {
-    background: "rgba(28, 28, 30, 0.85)",
-    border: "rgba(255, 255, 255, 0.12)",
-    shadow: "rgba(0, 0, 0, 0.35)",
-    textPrimary: "#F2F2F7",
-    textSecondary: "rgba(235, 235, 245, 0.65)",
-    accent: "#0A84FF",
-    controlBg: "rgba(255, 255, 255, 0.08)",
-    pageBackground: "#000000",
-  },
-} as const;
+// Import colorSystem from shared design tokens
+import { colorSystem } from "../designTokens/colorSystem";

@@ -3,38 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-/**
- * Color system for light and dark themes
- * - Uses professional color contrasts for accessibility
- * - Includes glassmorphism effects with transparency
- * - Optimized for performance and minimal re-renders
- */
-const colorSystem = {
-  light: {
-    background: {
-      primary: "#FFFFFF",
-      gradient: "linear-gradient(135deg, #F5F5F7 0%, #FFFFFF 100%)",
-    },
-    text: {
-      primary: "#1D1D1F",
-      secondary: "#1D1D1F",
-      accent: "#007AFF",
-    },
-    loader: "#007AFF",
-  },
-  dark: {
-    background: {
-      primary: "#000000",
-      gradient: "linear-gradient(135deg, #121212 0%, #000000 100%)",
-    },
-    text: {
-      primary: "#F2F2F7",
-      secondary: "#F2F2F7",
-      accent: "#0A84FF",
-    },
-    loader: "#0A84FF",
-  },
-} as const;
+import { colorSystem } from "../../context/ThemeContext";
 
 /**
  * Detects user's system theme preference
