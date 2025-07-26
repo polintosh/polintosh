@@ -8,15 +8,9 @@ import Link from "next/link";
 
 interface BlogCardProps {
   post: BlogPost;
-  index: number;
-  featured?: boolean;
 }
 
-export default function BlogCard({
-  post,
-  index,
-  featured = false,
-}: BlogCardProps) {
+export default function BlogCard({ post }: BlogCardProps) {
   const { theme } = useTheme();
   const colors = colorSystem[theme];
 
@@ -24,10 +18,10 @@ export default function BlogCard({
     <motion.article
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+      transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
       whileHover={{ scale: 1.02, rotateY: 2, rotateX: -2 }}
       className={`group relative overflow-hidden rounded-3xl border backdrop-blur-xl ${
-        featured ? "md:col-span-2 md:row-span-2" : ""
+        post.featured ? "md:col-span-2 md:row-span-2" : ""
       }`}
       style={{
         backgroundColor: colors.background.glass,
@@ -64,7 +58,7 @@ export default function BlogCard({
         {/* Cover Image Placeholder or Gradient */}
         <div
           className={`relative overflow-hidden rounded-2xl mb-6 ${
-            featured ? "h-48 md:h-64" : "h-32 md:h-40"
+            post.featured ? "h-48 md:h-64" : "h-32 md:h-40"
           }`}
           style={{
             background: `linear-gradient(135deg, ${colors.accent}20, ${colors.accent}05)`,
@@ -123,7 +117,7 @@ export default function BlogCard({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className={`font-bold leading-tight group-hover:text-opacity-80 transition-colors duration-300 ${
-              featured ? "text-2xl md:text-3xl" : "text-lg md:text-xl"
+              post.featured ? "text-2xl md:text-3xl" : "text-lg md:text-xl"
             }`}
             style={{ color: colors.textPrimary }}
           >
@@ -136,7 +130,7 @@ export default function BlogCard({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className={`leading-relaxed ${
-              featured ? "text-base md:text-lg" : "text-sm md:text-base"
+              post.featured ? "text-base md:text-lg" : "text-sm md:text-base"
             }`}
             style={{ color: colors.textSecondary }}
           >
