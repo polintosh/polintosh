@@ -1,24 +1,32 @@
-"use client";
-
-import PageWrapper from "@/components/PageWrapper/PageWrapper";
-import { motion } from "framer-motion";
+import { getAllBlogPosts, getAllCategories, getAllTags } from "@/lib/blog";
+import BlogContent from "./BlogContent";
 
 export default function BlogPage() {
+  // Fetch data server-side
+  const allPosts = getAllBlogPosts();
+  const allTags = getAllTags();
+  const allCategories = getAllCategories();
+
   return (
-    <PageWrapper
-      title="Blog"
-      subtitle="Thoughts, tutorials, and insights on software engineering, design, and technology trends."
-    >
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          className="space-y-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-        >
-          {/* Blog posts content will go here */}
-        </motion.div>
-      </div>
-    </PageWrapper>
+    <BlogContent posts={allPosts} tags={allTags} categories={allCategories} />
   );
+}
+export async function generateMetadata() {
+  return {
+    title: "Writing - Pol's Portfolio",
+    description:
+      "A dedicated space for articles, tutorials, and thoughts on engineering, design, and technology.",
+    openGraph: {
+      title: "Writing - Pol's Portfolio",
+      description:
+        "A dedicated space for articles, tutorials, and thoughts on engineering, design, and technology.",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Writing - Pol's Portfolio",
+      description:
+        "A dedicated space for articles, tutorials, and thoughts on engineering, design, and technology.",
+    },
+  };
 }

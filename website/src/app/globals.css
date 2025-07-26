@@ -96,3 +96,105 @@ a {
   background: var(--accent);
   color: white;
 }
+
+/* Syntax highlighting styles */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  background: transparent !important;
+}
+
+/* Light theme syntax highlighting */
+:root[data-theme="light"] .hljs {
+  color: #24292f;
+}
+
+:root[data-theme="light"] .hljs-comment,
+:root[data-theme="light"] .hljs-quote {
+  color: #6a737d;
+  font-style: italic;
+}
+
+:root[data-theme="light"] .hljs-keyword,
+:root[data-theme="light"] .hljs-selector-tag,
+:root[data-theme="light"] .hljs-subst {
+  color: #d73a49;
+}
+
+:root[data-theme="light"] .hljs-number,
+:root[data-theme="light"] .hljs-literal,
+:root[data-theme="light"] .hljs-variable,
+:root[data-theme="light"] .hljs-template-variable,
+:root[data-theme="light"] .hljs-tag .hljs-attr {
+  color: #005cc5;
+}
+
+:root[data-theme="light"] .hljs-string,
+:root[data-theme="light"] .hljs-doctag {
+  color: #032f62;
+}
+
+:root[data-theme="light"] .hljs-title,
+:root[data-theme="light"] .hljs-section,
+:root[data-theme="light"] .hljs-selector-id {
+  color: #6f42c1;
+}
+
+:root[data-theme="light"] .hljs-type,
+:root[data-theme="light"] .hljs-class .hljs-title {
+  color: #d73a49;
+}
+
+:root[data-theme="light"] .hljs-tag,
+:root[data-theme="light"] .hljs-name,
+:root[data-theme="light"] .hljs-attribute {
+  color: #22863a;
+}
+
+/* Dark theme syntax highlighting */
+:root[data-theme="dark"] .hljs {
+  color: #c9d1d9;
+}
+
+:root[data-theme="dark"] .hljs-comment,
+:root[data-theme="dark"] .hljs-quote {
+  color: #8b949e;
+  font-style: italic;
+}
+
+:root[data-theme="dark"] .hljs-keyword,
+:root[data-theme="dark"] .hljs-selector-tag,
+:root[data-theme="dark"] .hljs-subst {
+  color: #ff7b72;
+}
+
+:root[data-theme="dark"] .hljs-number,
+:root[data-theme="dark"] .hljs-literal,
+:root[data-theme="dark"] .hljs-variable,
+:root[data-theme="dark"] .hljs-template-variable,
+:root[data-theme="dark"] .hljs-tag .hljs-attr {
+  color: #79c0ff;
+}
+
+:root[data-theme="dark"] .hljs-string,
+:root[data-theme="dark"] .hljs-doctag {
+  color: #a5d6ff;
+}
+
+:root[data-theme="dark"] .hljs-title,
+:root[data-theme="dark"] .hljs-section,
+:root[data-theme="dark"] .hljs-selector-id {
+  color: #d2a8ff;
+}
+
+:root[data-theme="dark"] .hljs-type,
+:root[data-theme="dark"] .hljs-class .hljs-title {
+  color: #ff7b72;
+}
+
+:root[data-theme="dark"] .hljs-tag,
+:root[data-theme="dark"] .hljs-name,
+:root[data-theme="dark"] .hljs-attribute {
+  color: #7ee787;
+}

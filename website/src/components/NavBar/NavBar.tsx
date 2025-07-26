@@ -5,7 +5,6 @@ import {
   Briefcase,
   Code,
   FolderGit2,
-  Globe,
   Moon,
   PenSquare,
   Send,
@@ -211,6 +210,8 @@ export default function NavBar({
               />
             </button>
           </div>
+          {/*
+          // Language Selector
           <button
             className="flex items-center justify-center gap-2 w-full p-2 rounded-lg font-baloo font-semibold text-sm"
             style={{
@@ -221,7 +222,7 @@ export default function NavBar({
             <Globe size={16} />
             <span>English</span>
           </button>
-          {/* Cal.com booking link
+          // Cal.com booking link
           <a
             href={SOCIAL_LINKS.cal}
             target="_blank"

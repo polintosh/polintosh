@@ -24,9 +24,9 @@ const baloo = Baloo_2({
 });
 
 export const metadata: Metadata = {
-  title: "Polintosh | Product-minded Software Engineer",
+  title: "Polintosh | Engineered for Creativity",
   description:
-    "A personal portfolio showcasing projects, career, and technical skills.",
+    "Merging design, technology, and AI into thoughtful experiences. Always creating — always chasing that 'one more thing'.",
 };
 
 export default function RootLayout({

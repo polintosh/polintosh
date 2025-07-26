@@ -141,6 +141,7 @@ export const colorSystem = {
     background: {
       solid: "#ffffff",
       gradient: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+      glass: "rgba(255, 255, 255, 0.85)",
     },
 
     // Text colors
@@ -151,6 +152,7 @@ export const colorSystem = {
     border: "#e5e7eb",
     accent: "#3b82f6",
     controlBg: "#f3f4f6",
+    shadow: "#000000",
 
     // Splash screen specific
     loader: "#3b82f6",
@@ -161,6 +163,7 @@ export const colorSystem = {
     background: {
       solid: "#1f1f1f",
       gradient: "linear-gradient(135deg, #0f0f0f 0%, #1f1f1f 100%)",
+      glass: "rgba(31, 31, 31, 0.85)",
     },
 
     // Text colors
@@ -171,6 +174,7 @@ export const colorSystem = {
     border: "#374151",
     accent: "#60a5fa",
     controlBg: "#27272a",
+    shadow: "#ffffff",
 
     // Splash screen specific
     loader: "#60a5fa",
