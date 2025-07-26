@@ -1,0 +1,48 @@
+# GitHub Actions workflow for deploying Next.js to GitHub Pages
+# This workflow builds the app and pushes the static output to the gh-pages branch
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js app
+        run: npm run build
+        # If using next export for static site, use: npm run export
+
+      - name: Export static files
+        run: npm run export
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          # The ./out directory is the default output for next export
+
+      # Clean up workflow artifacts
+      - name: Clean up
+        run: rm -rf node_modules
+# Comments:
+# - This workflow is triggered on push to main or manually.
+# - It uses next export to generate static files for GitHub Pages.
+# - The peaceiris/actions-gh-pages action pushes the output to gh-pages branch.
+# - Make sure your Next.js config supports static export (see next.config.js).
