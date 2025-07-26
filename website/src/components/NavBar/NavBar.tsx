@@ -63,13 +63,22 @@ export default function NavBar({
       aria-label="Main navigation"
     >
       <div
-        className="flex flex-col h-full w-60 p-4 rounded-2xl backdrop-blur-2xl shadow-2xl"
+        className="flex flex-col h-full w-60 p-4 rounded-2xl backdrop-blur-2xl shadow-2xl relative overflow-hidden"
         style={{
-          background: colors.background,
+          background: `linear-gradient(135deg, ${colors.background}95, ${colors.background}85)`,
           border: `1px solid ${colors.border}`,
           boxShadow: `0 16px 48px ${colors.shadow}`,
         }}
       >
+        {/* Subtle gradient overlay for continuity */}
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(99, 102, 241, 0.03) 50%, rgba(168, 85, 247, 0.05) 100%)",
+            pointerEvents: "none",
+          }}
+        />
         {/* Profile Section */}
         <div className="flex items-center gap-3 pt-2 pb-6">
           <Image
