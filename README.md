@@ -1,4 +1,4 @@
-<img width="1584" height="396" alt="Creativity" src="https://github.com/user-attachments/assets/8477e89a-2b78-4024-9f86-920fc25fbf80" />
+<img width="1200" height="400" alt="X-Cover" src="https://github.com/user-attachments/assets/2a484571-fcc4-40bd-bc6a-00b64a6706ac" />
 
 <div align="center">
   <h1>👋 Hey, I'm Pol Hernàndez - Polintosh</h1>
