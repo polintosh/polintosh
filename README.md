@@ -2,9 +2,6 @@
 
 <h3 align="center"></h3>
 
-<div align="center">
-  <h3>🪐 Keep Discovering.</h3>
-</div>
 ---
 
 ### 🚀 About Me
