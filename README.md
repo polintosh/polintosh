@@ -1,68 +1,101 @@
 <img width="1200" height="400" alt="CoverX" src="https://github.com/user-attachments/assets/c377a037-d7a2-40fa-8bcd-c0b66a736de6" />
 
+<h3 align="center"></h3>
+
 <div align="center">
-  <h1>👋 Hey, I'm Pol Hernàndez - Polintosh</h1>
-  <p><strong>Software Developer | iOS Specialist | AI/ML Investigator</strong></p>
-  <p>Crafting apps that simplify life and ignite curiosity. Always chasing <i>One More Thing</i> with creativity and passion.</p>
-  
-  <img src="https://img.shields.io/badge/Swift-iOS%20Development-orange?style=flat-square&logo=swift" alt="Swift Badge">
-  <img src="https://img.shields.io/badge/Flutter-Cross%20Platform-cyan?style=flat-square&logo=flutter" alt="Flutter Badge">
-  <img src="https://img.shields.io/badge/Python-AI%2FML-blue?style=flat-square&logo=python" alt="Python Badge">
-  <img src="https://img.shields.io/badge/Docker-Containers-blue?style=flat-square&logo=docker" alt="Docker Badge">
-  
-  <a href="https://www.linkedin.com/in/pol-hernàndez-319518299"><img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=social&logo=linkedin" alt="LinkedIn"></a>
-  <a href="https://x.com/polintosh"><img src="https://img.shields.io/badge/X-Follow-black?style=social&logo=x" alt="X"></a>
+  <h3>🪐 Keep Discovering.</h3>
+</div>
+---
+
+### 🚀 About Me
+
+I'm an **iOS developer by day, AI explorer by night**. I believe great software should feel invisible—intuitive, simple, and *delightful*.
+
+```swift
+let passion = "Creating experiences that feel like magic"
+let mission = "One more thing... always one more thing"
+```
+
+- 🔭 Currently chasing my *One More Thing*—a project that'll make you smile
+- 🌱 Exploring AI-driven features, clean architecture, and delightful UX
+- 💡 I believe in: simplicity, curiosity, and the power of great details
+- ⚡ Fun fact: Every line of code is a chance to create something extraordinary
+
+---
+
+### 🛠️ Tech Stack
+
+<details>
+<summary><b>Mobile Development</b></summary>
+<br>
+
+![Swift](https://img.shields.io/badge/Swift-FA7343?style=flat-square&logo=swift&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=dart&logoColor=white)
+![Xcode](https://img.shields.io/badge/Xcode-147EFB?style=flat-square&logo=xcode&logoColor=white)
+![Android Studio](https://img.shields.io/badge/Android_Studio-3DDC84?style=flat-square&logo=android-studio&logoColor=white)
+
+</details>
+
+<details>
+<summary><b>Backend & Databases</b></summary>
+<br>
+
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
+
+</details>
+
+<details>
+<summary><b>AI/ML & Data Science</b></summary>
+<br>
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![Scikit Learn](https://img.shields.io/badge/Scikit_Learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
+
+</details>
+
+<details>
+<summary><b>DevOps & Tools</b></summary>
+<br>
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
+
+</details>
+
+---
+
+### 📊 GitHub Stats
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=polintosh&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="GitHub Stats" height="165">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=polintosh&theme=tokyonight&hide_border=true&background=0D1117" alt="GitHub Streak" height="165">
 </div>
 
 ---
 
-## 🚀 About Me
-I'm a **Software Developer** with a knack for building intuitive iOS apps, cross-platform solutions, and exploring **AI/ML**. My projects blend creativity, functionality, and a touch of magic—think Apple’s sleek design meets Volvo’s practical elegance. With a ton of personal projects under my belt, I’m always tinkering with **One More Thing** to push the boundaries of tech.
+### 💭 Philosophy
 
-- 🌟 **Specialties**: iOS Development (Swift), Cross-Platform Apps (Flutter), AI/ML (Python), Backend (Laravel, PHP)
-- 🎨 **Vibes**: Minimalist design, user-focused experiences, and innovative solutions
-- 🔍 **Currently Exploring**: AI-driven app features, DevOps with Docker, and creative coding on Linux
+> **"Keep it simple. Keep it meaningful. Keep it human."**
 
----
-
-## 🛠️ Featured Projects
-Here’s a glimpse of my work—apps designed to make life easier and spark curiosity:
-
-| Project | Description | Link |
-|---------|-------------|------|
-| **Bobbo** | A smart, intuitive dog care app—built to simplify daily life with your dog. | [Explore Bobbo](https://bobboapp.framer.website) |
-| **MyCosmo** | Brings the universe to your fingertips—explore, learn, and track the cosmos. | [Discover MyCosmo](https://mycosmoapp.framer.website) |
-| **GridGourmet** | A Flutter app for browsing recipes in beautiful grid & list layouts. Open source & clean. | [Check GridGourmet](https://gridgourmetapp.framer.website) |
-
-> **Fun Fact**: Each project is a step toward my *One More Thing*—a vision to create something truly unique. Stay tuned! 🚧
+I love clean code, minimalist design, and the magic of a perfect detail. Every project is an opportunity to create something that feels *just right*.
 
 ---
 
-## 🧠 Skills
-| **Category** | **Tech Stack** |
-|--------------|----------------|
-| **Mobile Dev** | Swift, Flutter, Dart, Android Development, Xcode, Android Studio |
-| **Backend** | PHP, Laravel, C#, MySQL, MongoDB, SQL |
-| **Frontend** | HTML, CSS, Angular |
-| **AI/ML** | Python, TensorFlow, PyTorch, Scikit-learn |
-| **DevOps** | Docker, Linux, Git, GitHub |
-| **Tools** | Firebase, Figma, Sketch, UI/UX Principles |
+### 📫 Let's Connect
 
----
+I'm always excited to collaborate on interesting projects or just chat about tech, design, and ideas!
 
-## 🌍 Connect with Me
-Let’s create something extraordinary together!
-
-- 📧 **Email**: [hellopolintosh@gmail.com](mailto:hellopolintosh@gmail.com)
-- 🔗 **LinkedIn**: [Pol Hernàndez](https://www.linkedin.com/in/pol-hernàndez-319518299)
-- 🐦 **X**: [@polintosh](https://x.com/polintosh)
-- 💻 **GitHub**: You're already here! 😎
-
----
-
-## 🎯 What’s Next?
-I’m always diving into **personal projects** and exploring new fields like AI, DevOps, and creative app development. Expect more apps, experiments, and ideas that blend tech with human-centered design. Got an idea? Let’s collaborate!
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=polintosh&show_icons=true&theme=minimal" alt="GitHub Stats">
-</div>
+<p align="center">
+  <a href="https://x.com/polintosh"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X"></a>
+  <a href="https://www.linkedin.com/in/pol-hernàndez-319518299"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+  <a href="mailto:hellopolintosh@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
+</p>
