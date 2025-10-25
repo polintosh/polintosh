@@ -1,4 +1,4 @@
-<img width="1200" height="400" alt="CoverX" src="https://github.com/user-attachments/assets/c377a037-d7a2-40fa-8bcd-c0b66a736de6" />
+<img width="1500" height="396" alt="Frame" src="https://github.com/user-attachments/assets/2f15c871-af89-4495-bc9c-cd9a17ae9951" />
 
 <h3 align="center"></h3>
 
