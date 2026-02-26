@@ -1,5 +1,5 @@
 
-<img width="1344" height="622" alt="Banner" src="https://github.com/user-attachments/assets/c04986b7-584e-48ad-bd62-cd9b5740e2f5" />
+![BannerBlue](https://github.com/user-attachments/assets/d4684940-622e-4571-a284-3874062439eb)
 
 <h3 align="center"></h3>
 
