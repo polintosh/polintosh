@@ -38,5 +38,5 @@ let motto    = "One more thing... always one more thing."
 I'm drawn to the intersection of engineering precision and design sensibility. The best products aren't the most complex ones, they're the ones that make hard things look easy.
 
 <p align="center">
-  <sub>🇪🇺 Hosted in Europe · Barcelona, Catalonia</sub>
+  <sub>🇪🇺 Hosted in Europe</sub>
 </p>
