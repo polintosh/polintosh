@@ -1,4 +1,4 @@
-<img width="1675" height="939" alt="ABanner" src="https://github.com/user-attachments/assets/b91408aa-6409-467b-afd9-eb07439ae4d2" />
+<img width="4000" height="2000" alt="Group 2-2" src="https://github.com/user-attachments/assets/31d8f90a-4d88-4fc4-937f-fe2c30d1a05b" />
 
 <h3 align="center">iOS Developer · AI Explorer · Computer Engineering Student</h3>
 
