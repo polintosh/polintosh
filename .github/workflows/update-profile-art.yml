@@ -1,0 +1,30 @@
+name: Update profile art
+
+"on":
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  heatmap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      # Only the heatmap changes daily; the ASCII art and info card are regenerated locally
+      - run: pip install requests==2.32.3 beautifulsoup4==4.12.3
+      - run: python scripts/fetch_contributions.py
+      - run: python scripts/render_heatmap_svg.py
+      - uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          # [skip ci] keeps the bot's commit from re-triggering this workflow
+          commit_message: "Refresh contribution graph [skip ci]"
+          file_pattern: "data/contributions.json assets/contrib-heatmap.svg"
