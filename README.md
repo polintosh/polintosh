@@ -1,4 +1,4 @@
-<img width="4000" height="2000" alt="Keep Exploring." src="https://github.com/user-attachments/assets/31d8f90a-4d88-4fc4-937f-fe2c30d1a05b" />
+<img width="1675" height="939" alt="polibanner" src="https://github.com/user-attachments/assets/cc546605-aa22-483a-9248-7cee6969b029" />
 
 <h3 align="center">Apple Developer · Computer Engineer · AI Tinkerer</h3>
 <p align="center"><em>Driven by curiosity.</em></p>
