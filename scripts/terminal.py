@@ -8,12 +8,13 @@ BORDER = "#30363d"
 TEXT = "#e6edf3"
 MUTED = "#8b949e"
 FONT = "ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace"
+SANS = "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Inter, Arial, sans-serif"
 BAR_HEIGHT = 32
 
 
 def window(width: int, height: int, title: str, body: str, style: str = "") -> str:
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="{title}">
-<style>text {{ font-family: {FONT}; }}{style}</style>
+<style>text {{ font-family: {FONT}; }} .sans {{ font-family: {SANS}; }}{style}</style>
 <rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="10" fill="{BG}" stroke="{BORDER}"/>
 <circle cx="18" cy="16" r="5.5" fill="#ff5f57"/>
 <circle cx="36" cy="16" r="5.5" fill="#febc2e"/>
@@ -29,3 +30,8 @@ def save(name: str, svg: str) -> None:
     ASSETS.mkdir(exist_ok=True)
     (ASSETS / name).write_text(svg)
     print(f"wrote assets/{name}")
+
+
+def prompt(x: float, y: float, command: str) -> str:
+    return (f'<text x="{x}" y="{y}" fill="{TEXT}" font-size="13">'
+            f'<tspan fill="{MUTED}">polintosh@github ~ $</tspan> {command}</text>')

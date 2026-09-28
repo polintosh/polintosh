@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="224" viewBox="0 0 860 224" role="img" aria-label="polintosh — contributions">
-<style>text { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; }
+<style>text { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; } .sans { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Inter, Arial, sans-serif; }
 .c { opacity: 0; transform-box: fill-box; transform-origin: center;
      animation: drop .45s cubic-bezier(.2,.8,.2,1) forwards; }
 @keyframes drop { from { opacity: 0; transform: translateY(-8px) scale(.5); }

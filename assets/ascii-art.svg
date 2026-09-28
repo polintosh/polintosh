@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="370" height="408" viewBox="0 0 370 408" role="img" aria-label="polintosh — keep exploring">
-<style>text { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; }</style>
+<style>text { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; } .sans { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Inter, Arial, sans-serif; }</style>
 <rect x="0.5" y="0.5" width="369" height="407" rx="10" fill="#0d1117" stroke="#30363d"/>
 <circle cx="18" cy="16" r="5.5" fill="#ff5f57"/>
 <circle cx="36" cy="16" r="5.5" fill="#febc2e"/>

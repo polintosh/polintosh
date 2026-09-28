@@ -1,5 +1,5 @@
 """Hand-authored neofetch-style card that prints itself line by line."""
-from terminal import BAR_HEIGHT, MUTED, TEXT, save, window
+from terminal import BAR_HEIGHT, MUTED, TEXT, prompt, save, window
 
 WIDTH = 490
 LINE_HEIGHT = 22
@@ -35,8 +35,7 @@ def line(index: int, content: str) -> str:
 def main():
     y = BAR_HEIGHT + 30
     parts = [
-        line(0, f'<text x="{KEY_X}" y="{y}" fill="{TEXT}" font-size="13">'
-                f'<tspan fill="{MUTED}">polintosh@github ~ $</tspan> whoami</text>'),
+        line(0, prompt(KEY_X, y, "whoami")),
         line(1, f'<text x="{KEY_X}" y="{y + 30}" fill="{TEXT}" font-size="15" font-weight="700">polintosh</text>'),
         line(1, f'<line x1="{KEY_X}" y1="{y + 42}" x2="{WIDTH - KEY_X}" y2="{y + 42}" stroke="#30363d"/>'),
     ]

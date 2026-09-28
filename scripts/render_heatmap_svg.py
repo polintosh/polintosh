@@ -3,7 +3,7 @@ import json
 from datetime import date, timedelta
 from pathlib import Path
 
-from terminal import BAR_HEIGHT, MUTED, TEXT, save, window
+from terminal import BAR_HEIGHT, MUTED, prompt, save, window
 
 DATA = Path(__file__).resolve().parent.parent / "data" / "contributions.json"
 
@@ -34,8 +34,7 @@ def main():
     grid_width = weeks * STEP - (STEP - CELL)
     left = (WIDTH - LABEL_WIDTH - grid_width) // 2 + LABEL_WIDTH
 
-    parts = [f'<text x="24" y="{BAR_HEIGHT + 24}" fill="{TEXT}" font-size="13">'
-             f'<tspan fill="{MUTED}">polintosh@github ~ $</tspan> ./contributions.sh</text>']
+    parts = [prompt(24, BAR_HEIGHT + 24, "./contributions.sh")]
 
     for row, label in ((1, "Mon"), (3, "Wed"), (5, "Fri")):
         y = GRID_TOP + row * STEP + CELL - 2
