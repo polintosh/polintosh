@@ -1,42 +1,22 @@
-<img width="4000" height="2000" alt="Group 2-2" src="https://github.com/user-attachments/assets/31d8f90a-4d88-4fc4-937f-fe2c30d1a05b" />
+<img width="4000" height="2000" alt="Keep Exploring." src="https://github.com/user-attachments/assets/31d8f90a-4d88-4fc4-937f-fe2c30d1a05b" />
 
-<h3 align="center">iOS Developer · AI Explorer · Computer Engineering Student</h3>
+<h3 align="center">Apple Developer · Computer Engineer · AI Tinkerer</h3>
+<p align="center"><em>Driven by curiosity.</em></p>
 
-<p align="center">
-  <em>Building software that feels invisible. The intuitive, simple, and delightful.</em>
-</p>
+<div align="center">
 
----
+<table>
+  <tr>
+    <td valign="top"><img src="./assets/ascii-art.svg" width="370" alt="ASCII telescope" /></td>
+    <td valign="top"><img src="./assets/info-card.svg" width="490" alt="polintosh — Apple Developer, Computer Engineer and AI Tinkerer, driven by curiosity. Studies Computer Engineering at La Salle, based in Barcelona. Stack: Swift, SwiftUI, Python. Focus: Apple platforms and on-device AI." /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="./assets/contrib-heatmap.svg" width="860" alt="Contribution graph for the last year" /></td>
+  </tr>
+</table>
 
-### 👋 About Me
+<br><br>
 
-I'm **Pol**, a Computer Engineering student at La Salle, Barcelona, focused on the intersection of **Apple platforms** and **Artificial Intelligence**.
+<sub><b>Keep Exploring.</b> &nbsp;·&nbsp; 🇪🇺 Hosted in Europe</sub>
 
-I believe great software shouldn't need an instruction manual. It should just *feel right* the kind of experience where the technology disappears and only the magic remains.
-
-```swift
-let focus    = "Apple · AI · Clean Architecture"
-let approach = "Simple on the surface. Thoughtful underneath."
-let motto    = "One more thing... always one more thing."
-```
-
----
-
-### 🎯 What I'm Focused On
-
-- 🍎 &nbsp;Pushing the boundaries of what's possible on Apple platforms
-- 🤖 &nbsp;Exploring on-device AI and the future of intelligent apps
-- 🏗️ &nbsp;Building products with real users and real impact in mind
-- 📐 &nbsp;Obsessing over details that most people won't notice — but everyone will feel
-
----
-
-### 💭 Philosophy
-
-> *"Keep it simple. Keep it meaningful. Keep it human."*
-
-I'm drawn to the intersection of engineering precision and design sensibility. The best products aren't the most complex ones, they're the ones that make hard things look easy.
-
-<p align="center">
-  <sub>🇪🇺 Hosted in Europe</sub>
-</p>
+</div>
