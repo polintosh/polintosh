@@ -8,7 +8,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from deck import AMBER, DIM, HAIRLINE, HEAD, INK, LINE_STRONG, MUTED, PAD, WIDTH, corners, label, panel, save
+from deck import HEAD, PAD, WIDTH, Theme, corners, label, panel, save
 
 ROOT = Path(__file__).resolve().parent.parent
 COLS, CELL = 40, 6
@@ -58,32 +58,32 @@ def halftone(path: Path, left: float, top: float, height: float) -> str:
                    for i, d in sorted(diagonals.items()))
 
 
-def main():
+def render(t: Theme) -> str:
     source = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "data" / "telescope.png"
     dossier_height = len(INFO) * ROW_HEIGHT
     bottom = HEAD + dossier_height
 
     parts = [
-        f'<g fill="{INK}" shape-rendering="crispEdges">{halftone(source, PAD, HEAD, dossier_height)}</g>',
-        corners(PAD + .5, HEAD + .5, FIGURE_WIDTH, dossier_height),
-        label(PAD, bottom + 22, "Fig. 02 · Refractor", fill=DIM),
-        f'<line x1="{DOSSIER_X}" y1="{HEAD + .5}" x2="{WIDTH - PAD}" y2="{HEAD + .5}" stroke="{LINE_STRONG}"/>',
+        f'<g fill="{t.ink}" shape-rendering="crispEdges">{halftone(source, PAD, HEAD, dossier_height)}</g>',
+        corners(t, PAD + .5, HEAD + .5, FIGURE_WIDTH, dossier_height),
+        label(t, PAD, bottom + 22, "Fig. 02 · Refractor", fill=t.dim),
+        f'<line x1="{DOSSIER_X}" y1="{HEAD + .5}" x2="{WIDTH - PAD}" y2="{HEAD + .5}" stroke="{t.line_strong}"/>',
     ]
     for i, (key, value) in enumerate(INFO):
         y = HEAD + i * ROW_HEIGHT
         value_x = VALUE_X
         signal = ""
         if key == SIGNAL:
-            signal = f'<rect x="{VALUE_X}" y="{y + 14}" width="8" height="8" fill="{AMBER}"/>'
+            signal = f'<rect x="{VALUE_X}" y="{y + 14}" width="8" height="8" fill="{t.accent}"/>'
             value_x += 18
         parts.append(
-            f'<g class="enter" style="animation-delay:{i * 0.08:.2f}s">{label(DOSSIER_X, y + 22.5, key)}{signal}'
-            f'<text class="sans" x="{value_x}" y="{y + 23}" fill="{INK}" font-size="14.5">{value}</text>'
+            f'<g class="enter" style="animation-delay:{i * 0.08:.2f}s">{label(t, DOSSIER_X, y + 22.5, key)}{signal}'
+            f'<text class="sans" x="{value_x}" y="{y + 23}" fill="{t.ink}" font-size="14.5">{value}</text>'
             f'<line x1="{DOSSIER_X}" y1="{y + ROW_HEIGHT + .5}" x2="{WIDTH - PAD}" y2="{y + ROW_HEIGHT + .5}" '
-            f'stroke="{HAIRLINE}"/></g>')
+            f'stroke="{t.hairline}"/></g>')
 
-    save("about.svg", panel(bottom + 44, 1, "About", "\n".join(parts), STYLE, "Dossier"))
+    return panel(t, bottom + 44, 1, "About", "\n".join(parts), STYLE, "Dossier")
 
 
 if __name__ == "__main__":
-    main()
+    save("about", render)
