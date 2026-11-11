@@ -28,4 +28,4 @@ jobs:
         with:
           # [skip ci] keeps the bot's commit from re-triggering this workflow
           commit_message: "Refresh contribution graph [skip ci]"
-          file_pattern: "data/contributions.json assets/contrib-heatmap.svg assets/year-in-review.svg"
+          file_pattern: "data/contributions.json assets/contrib-heatmap-*.svg assets/year-in-review-*.svg"

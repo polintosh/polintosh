@@ -9,7 +9,7 @@ import math
 import random
 from collections import defaultdict
 
-from deck import AMBER, BODY, DIM, GROUND, INK, MUTED, PAD, WIDTH, corners, frame, label, pixel_text, save
+from deck import DARK, LIGHT, PAD, WIDTH, Theme, corners, frame, label, pixel_text, save
 
 HEIGHT = 470
 CORE_X, CORE_Y = 612, 300
@@ -24,8 +24,13 @@ FIELD_STARS = 240
 GLINTS = 28
 RINGS = 8
 
-WARM = ["#fff6dd", "#f3d898", "#e2c383"]
-COOL = ["#cfd3dc", "#aeb6cc"]
+# Star tones per theme, core outward: three warm steps, then two cool ones. On paper the
+# galaxy prints as ink, so its core is the darkest point instead of the brightest.
+WARM = {DARK.name: ["#fff6dd", "#f3d898", "#e2c383"], LIGHT.name: ["#5c2003", "#a83e08", "#c2611c"]}
+COOL = {DARK.name: ["#cfd3dc", "#aeb6cc"], LIGHT.name: ["#4a4c52", "#6b6e74"]}
+# Core glow as (colour, opacity) stops, centre to rim
+GLOW = {DARK.name: [("#fffaf0", .95), ("#f6dfa6", .4), ("#e2c383", 0)],
+        LIGHT.name: [("#ff7a1a", .55), ("#ff7a1a", .22), ("#ff7a1a", 0)]}
 LEVELS = [0.3, 0.5, 0.75, 1.0]
 
 TAU = math.tau
@@ -70,17 +75,18 @@ def project(radius: float, angle: float):
     return round(CORE_X + RADIUS * (x * COS_T - y * SIN_T)), round(CORE_Y + RADIUS * (x * SIN_T + y * COS_T))
 
 
-def tone(radius: float, rng: random.Random) -> str:
+def tone(t: Theme, radius: float, rng: random.Random) -> str:
+    warm, cool = WARM[t.name], COOL[t.name]
     r = radius + rng.gauss(0, 0.07)
     if r < 0.1:
-        return WARM[0]
+        return warm[0]
     if r < 0.26:
-        return WARM[1]
+        return warm[1]
     if r < 0.42:
-        return rng.choice([WARM[2], INK])
+        return rng.choice([warm[2], t.ink])
     if r < 0.8:
-        return rng.choice([INK, COOL[0]])
-    return COOL[1]
+        return rng.choice([t.ink, cool[0]])
+    return cool[1]
 
 
 def squares(points, size: int) -> str:
@@ -99,7 +105,7 @@ def paths(buckets) -> str:
                    for (color, opacity, size), points in sorted(buckets.items()))
 
 
-def galaxy(rng: random.Random):
+def galaxy(t: Theme, rng: random.Random):
     rings = [defaultdict(list) for _ in range(RINGS)]
     taken, bright = set(), []
     for _ in range(STARS):
@@ -111,53 +117,55 @@ def galaxy(rng: random.Random):
         size = 3 if rng.random() < 0.012 else 2 if rng.random() < 0.1 + 0.15 * brightness else 1
         opacity = LEVELS[min(len(LEVELS) - 1, int(brightness * len(LEVELS)))]
         ring = min(RINGS - 1, int(radius / REACH * RINGS))
-        rings[ring][(tone(radius, rng), opacity, size)].append((x, y))
+        rings[ring][(tone(t, radius, rng), opacity, size)].append((x, y))
         if 0.25 < radius < 1 and brightness > 0.45:
             bright.append((x, y))
     return rings, bright
 
 
-def field(rng: random.Random):
+def field(t: Theme, rng: random.Random):
     buckets = defaultdict(list)
     for _ in range(FIELD_STARS):
         point = rng.randrange(2, WIDTH - 4), rng.randrange(2, HEIGHT - 4)
-        buckets[(rng.choice(COOL), rng.choice(LEVELS[:2]), 2 if rng.random() < 0.08 else 1)].append(point)
+        buckets[(rng.choice(COOL[t.name]), rng.choice(LEVELS[:2]), 2 if rng.random() < 0.08 else 1)].append(point)
     return buckets
 
 
-def glints(points, rng: random.Random) -> str:
+def glints(t: Theme, points, rng: random.Random) -> str:
     """A few plus-shaped stars that keep twinkling, each on its own beat."""
     parts = []
     for x, y in rng.sample(points, GLINTS):
         parts.append(f'<path class="glint" style="animation-duration:{rng.uniform(2.5, 6):.1f}s;'
                      f'animation-delay:-{rng.uniform(0, 6):.1f}s" d="M{x - 2} {y + .5}h5M{x + .5} {y - 2}v5"/>')
-    return f'<g class="glints" stroke="{INK}" fill="none">{"".join(parts)}</g>'
+    return f'<g class="glints" stroke="{t.ink}" fill="none">{"".join(parts)}</g>'
 
 
-def main():
+def render(t: Theme) -> str:
+    # Reseeding per theme keeps both prints the same galaxy, star for star
     rng = random.Random(SEED)
-    rings, bright = galaxy(rng)
+    rings, bright = galaxy(t, rng)
 
     glow_x, glow_y = RADIUS * 0.2, RADIUS * 0.2 * COS_I * 1.3
     defs = (
-        '<radialGradient id="core"><stop offset="0" stop-color="#fffaf0" stop-opacity=".95"/>'
-        '<stop offset=".3" stop-color="#f6dfa6" stop-opacity=".4"/>'
-        '<stop offset="1" stop-color="#e2c383" stop-opacity="0"/></radialGradient>'
-        f'<linearGradient id="top" x2="0" y2="1"><stop offset="0" stop-color="{GROUND}" stop-opacity=".85"/>'
-        f'<stop offset="1" stop-color="{GROUND}" stop-opacity="0"/></linearGradient>'
-        f'<radialGradient id="copy"><stop offset=".4" stop-color="{GROUND}" stop-opacity=".9"/>'
-        f'<stop offset="1" stop-color="{GROUND}" stop-opacity="0"/></radialGradient>'
+        '<radialGradient id="core">'
+        + "".join(f'<stop offset="{offset}" stop-color="{color}" stop-opacity="{opacity}"/>'
+                  for offset, (color, opacity) in zip((0, .3, 1), GLOW[t.name]))
+        + '</radialGradient>'
+        f'<linearGradient id="top" x2="0" y2="1"><stop offset="0" stop-color="{t.ground}" stop-opacity=".85"/>'
+        f'<stop offset="1" stop-color="{t.ground}" stop-opacity="0"/></linearGradient>'
+        f'<radialGradient id="copy"><stop offset=".4" stop-color="{t.ground}" stop-opacity=".9"/>'
+        f'<stop offset="1" stop-color="{t.ground}" stop-opacity="0"/></radialGradient>'
     )
 
-    sky = [f'<g class="field" fill="none" shape-rendering="crispEdges">{paths(field(rng))}</g>']
+    sky = [f'<g class="field" fill="none" shape-rendering="crispEdges">{paths(field(t, rng))}</g>']
     for i, ring in enumerate(rings):
         sky.append(f'<g class="ring" style="animation-delay:{0.7 + i * 0.16:.2f}s" fill="none" '
                    f'shape-rendering="crispEdges">{paths(ring)}</g>')
     sky.append(f'<g class="glow" transform="translate({CORE_X} {CORE_Y}) rotate({TILT})">'
                f'<ellipse rx="{glow_x * 2.6:.0f}" ry="{glow_y * 2.6:.0f}" fill="url(#core)" opacity=".35"/>'
                f'<ellipse rx="{glow_x:.0f}" ry="{glow_y:.0f}" fill="url(#core)"/></g>')
-    sky.append(f'<rect class="seed" x="{CORE_X - 2}" y="{CORE_Y - 2}" width="4" height="4" fill="#fffaf0"/>')
-    sky.append(glints(bright, rng))
+    sky.append(f'<rect class="seed" x="{CORE_X - 2}" y="{CORE_Y - 2}" width="4" height="4" fill="{WARM[t.name][0]}"/>')
+    sky.append(glints(t, bright, rng))
     # Veils keep the grain quiet under the wordmark and the copy
     sky.append(f'<rect width="{WIDTH}" height="230" fill="url(#top)"/>')
     sky.append(f'<ellipse cx="170" cy="400" rx="330" ry="120" fill="url(#copy)"/>')
@@ -165,25 +173,25 @@ def main():
     box_x, box_y, box_w, box_h = CORE_X - 160, CORE_Y - 96, 320, 192
     caption_y = box_y + box_h + 22
     copy = [
-        f'<g class="enter"><rect x="{PAD}" y="22" width="7" height="7" fill="{AMBER}"/>'
-        f'{label(PAD + 16, 31, "Ground station · Barcelona")}'
-        f'{label(WIDTH - PAD, 31, "41.3874° N · 2.1686° E · UTC+1", "end")}</g>',
-        pixel_text("POLINTOSH", PAD, 56, 16, INK, attrs='class="enter" style="animation-delay:.1s"'),
-        pixel_text("KEEP EXPLORING.", PAD, 346, 4, AMBER, dots=True, attrs='class="enter" style="animation-delay:.3s"'),
+        f'<g class="enter"><rect x="{PAD}" y="22" width="7" height="7" fill="{t.accent}"/>'
+        f'{label(t, PAD + 16, 31, "Ground station · Barcelona")}'
+        f'{label(t, WIDTH - PAD, 31, "41.3874° N · 2.1686° E · UTC+1", "end")}</g>',
+        pixel_text("POLINTOSH", PAD, 56, 16, t.ink, attrs='class="enter" style="animation-delay:.1s"'),
+        pixel_text("KEEP EXPLORING.", PAD, 346, 4, t.accent_ink, dots=True, attrs='class="enter" style="animation-delay:.3s"'),
         f'<g class="enter" style="animation-delay:.4s">'
-        f'<text class="sans" x="{PAD}" y="404" fill="{BODY}" font-size="15">'
+        f'<text class="sans" x="{PAD}" y="404" fill="{t.body}" font-size="15">'
         f'Apple Developer · Computer Engineer · AI Tinkerer</text>'
-        f'{label(PAD, 430, "Driven by curiosity", fill=DIM)}</g>',
+        f'{label(t, PAD, 430, "Driven by curiosity", fill=t.dim)}</g>',
         # The caption sits on the outer arm, so each half gets a plate of ground behind it
-        f'<g class="enter" style="animation-delay:3.2s">{corners(box_x + .5, box_y + .5, box_w, box_h)}'
-        f'<rect x="{box_x - 6}" y="{caption_y - 14}" width="144" height="20" fill="{GROUND}" opacity=".85"/>'
-        f'<rect x="{box_x + box_w - 82}" y="{caption_y - 14}" width="88" height="20" fill="{GROUND}" opacity=".85"/>'
-        f'{label(box_x, caption_y, "Fig. 01 · Spiral", fill=MUTED)}'
-        f'{label(box_x + box_w, caption_y, f"Incl. {INCLINATION}°", "end", MUTED)}</g>',
+        f'<g class="enter" style="animation-delay:3.2s">{corners(t, box_x + .5, box_y + .5, box_w, box_h)}'
+        f'<rect x="{box_x - 6}" y="{caption_y - 14}" width="144" height="20" fill="{t.ground}" opacity=".85"/>'
+        f'<rect x="{box_x + box_w - 82}" y="{caption_y - 14}" width="88" height="20" fill="{t.ground}" opacity=".85"/>'
+        f'{label(t, box_x, caption_y, "Fig. 01 · Spiral", fill=t.muted)}'
+        f'{label(t, box_x + box_w, caption_y, f"Incl. {INCLINATION}°", "end", t.muted)}</g>',
     ]
 
-    save("hero.svg", frame(HEIGHT, "polintosh — Keep Exploring.", "\n".join(sky + copy), STYLE, defs))
+    return frame(t, HEIGHT, "polintosh — Keep Exploring.", "\n".join(sky + copy), STYLE, defs)
 
 
 if __name__ == "__main__":
-    main()
+    save("hero", render)

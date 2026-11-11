@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="306" viewBox="0 0 860 306" role="img" aria-label="polintosh — Year in review">
+<style>text { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; } .sans { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Inter, Arial, sans-serif; }
+@media (prefers-reduced-motion: no-preference) {
+.enter { opacity: 0; animation: enter .7s cubic-bezier(.2,.8,.2,1) forwards; }
+@keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.b { transform-box: fill-box; transform-origin: bottom; transform: scaleY(0);
+     animation: grow .9s cubic-bezier(.2,.8,.2,1) forwards; }
+@keyframes grow { to { transform: scaleY(1); } }
+
+}
+</style>
+<defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><rect x="12" y="12" width="1" height="1" fill="#111214" opacity="0.07"/></pattern></defs>
+<rect width="860" height="306" fill="#f2f2f0"/>
+<rect width="860" height="306" fill="url(#grid)"/>
+<text x="22" y="31" fill="#5c5f66" font-size="11" letter-spacing="1.54"><tspan fill="#a83e08">05</tspan> · YEAR IN REVIEW</text>
+<g class="enter" style="animation-delay:0.0s"><path fill="#111214" shape-rendering="crispEdges"  d="M32 56h5v5h-5zM27 61h10v5h-10zM32 66h5v5h-5zM32 71h5v5h-5zM32 76h5v5h-5zM32 81h5v5h-5zM27 86h15v5h-15zM57 81h5v5h-5zM52 86h5v5h-5zM72 56h15v5h-15zM67 61h5v5h-5zM87 61h5v5h-5zM67 66h5v5h-5zM82 66h10v5h-10zM67 71h5v5h-5zM77 71h5v5h-5zM87 71h5v5h-5zM67 76h10v5h-10zM87 76h5v5h-5zM67 81h5v5h-5zM87 81h5v5h-5zM72 86h15v5h-15zM97 56h20v5h-20zM117 61h5v5h-5zM117 66h5v5h-5zM102 71h15v5h-15zM117 76h5v5h-5zM117 81h5v5h-5zM97 86h20v5h-20zM132 56h15v5h-15zM127 61h5v5h-5zM147 61h5v5h-5zM127 66h5v5h-5zM147 66h5v5h-5zM132 71h20v5h-20zM147 76h5v5h-5zM142 81h5v5h-5zM132 86h10v5h-10z"/><text x="22" y="111" fill="#5c5f66" font-size="11" letter-spacing="1.54" text-anchor="start" >CONTRIBUTIONS</text></g>
+<g class="enter" style="animation-delay:0.1s"><path fill="#111214" shape-rendering="crispEdges"  d="M236 56h5v5h-5zM231 61h10v5h-10zM236 66h5v5h-5zM236 71h5v5h-5zM236 76h5v5h-5zM236 81h5v5h-5zM231 86h15v5h-15zM261 56h15v5h-15zM256 61h5v5h-5zM276 61h5v5h-5zM276 66h5v5h-5zM271 71h5v5h-5zM266 76h5v5h-5zM261 81h5v5h-5zM256 86h25v5h-25zM296 56h10v5h-10zM291 61h5v5h-5zM286 66h5v5h-5zM286 71h20v5h-20zM286 76h5v5h-5zM306 76h5v5h-5zM286 81h5v5h-5zM306 81h5v5h-5zM291 86h15v5h-15z"/><text x="226" y="111" fill="#5c5f66" font-size="11" letter-spacing="1.54" text-anchor="start" >ACTIVE DAYS</text></g>
+<g class="enter" style="animation-delay:0.2s"><path fill="#111214" shape-rendering="crispEdges"  d="M445 56h5v5h-5zM440 61h10v5h-10zM435 66h5v5h-5zM445 66h5v5h-5zM430 71h5v5h-5zM445 71h5v5h-5zM430 76h25v5h-25zM445 81h5v5h-5zM445 86h5v5h-5zM460 56h25v5h-25zM460 61h5v5h-5zM460 66h20v5h-20zM480 71h5v5h-5zM480 76h5v5h-5zM460 81h5v5h-5zM480 81h5v5h-5zM465 86h15v5h-15zM490 56h20v5h-20zM490 61h5v5h-5zM510 61h5v5h-5zM490 66h5v5h-5zM510 66h5v5h-5zM490 71h5v5h-5zM510 71h5v5h-5zM490 76h5v5h-5zM510 76h5v5h-5zM490 81h5v5h-5zM510 81h5v5h-5zM490 86h20v5h-20z"/><text x="430" y="111" fill="#5c5f66" font-size="11" letter-spacing="1.54" text-anchor="start" >LONGEST STREAK</text></g>
+<g class="enter" style="animation-delay:0.3s"><path fill="#111214" shape-rendering="crispEdges"  d="M644 56h5v5h-5zM639 61h10v5h-10zM644 66h5v5h-5zM644 71h5v5h-5zM644 76h5v5h-5zM644 81h5v5h-5zM639 86h15v5h-15zM669 56h15v5h-15zM664 61h5v5h-5zM684 61h5v5h-5zM684 66h5v5h-5zM679 71h5v5h-5zM674 76h5v5h-5zM669 81h5v5h-5zM664 86h25v5h-25zM709 56h5v5h-5zM704 61h10v5h-10zM699 66h5v5h-5zM709 66h5v5h-5zM694 71h5v5h-5zM709 71h5v5h-5zM694 76h25v5h-25zM709 81h5v5h-5zM709 86h5v5h-5z"/><rect x="634" y="104" width="7" height="7" fill="#ff7a1a"/><text x="648" y="111" fill="#5c5f66" font-size="11" letter-spacing="1.54" text-anchor="start" >BEST DAY · NOV 10</text></g>
+<line x1="22" y1="134.5" x2="838" y2="134.5" stroke="#d4d4d0"/>
+<text x="22" y="162" fill="#5c5f66" font-size="11" letter-spacing="1.54" text-anchor="start" >PER MONTH</text>
+<text x="596" y="162" fill="#5c5f66" font-size="11" letter-spacing="1.54" text-anchor="start" >WEEKLY RHYTHM</text>
+<rect class="b" style="animation-delay:0.40s" x="32" y="255" width="24" height="13" fill="#c4c4bf"><title>Dec: 60</title></rect>
+<text x="44.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >D</text>
+<rect class="b" style="animation-delay:0.45s" x="75" y="262" width="24" height="6" fill="#c4c4bf"><title>Jan: 26</title></rect>
+<text x="87.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >J</text>
+<rect class="b" style="animation-delay:0.50s" x="118" y="266" width="24" height="2" fill="#c4c4bf"><title>Feb: 11</title></rect>
+<text x="130.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >F</text>
+<rect class="b" style="animation-delay:0.55s" x="161" y="266" width="24" height="2" fill="#c4c4bf"><title>Mar: 5</title></rect>
+<text x="173.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >M</text>
+<rect class="b" style="animation-delay:0.60s" x="204" y="266" width="24" height="2" fill="#c4c4bf"><title>Apr: 7</title></rect>
+<text x="216.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >A</text>
+<rect class="b" style="animation-delay:0.65s" x="247" y="255" width="24" height="13" fill="#c4c4bf"><title>May: 60</title></rect>
+<text x="259.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >M</text>
+<rect class="b" style="animation-delay:0.70s" x="291" y="259" width="24" height="9" fill="#c4c4bf"><title>Jun: 41</title></rect>
+<text x="303.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >J</text>
+<rect class="b" style="animation-delay:0.75s" x="334" y="252" width="24" height="16" fill="#c4c4bf"><title>Jul: 73</title></rect>
+<text x="346.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >J</text>
+<rect class="b" style="animation-delay:0.80s" x="377" y="259" width="24" height="9" fill="#c4c4bf"><title>Aug: 41</title></rect>
+<text x="389.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >A</text>
+<rect class="b" style="animation-delay:0.85s" x="420" y="259" width="24" height="9" fill="#c4c4bf"><title>Sep: 44</title></rect>
+<text x="432.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >S</text>
+<rect class="b" style="animation-delay:0.90s" x="463" y="212" width="24" height="56" fill="#c4c4bf"><title>Oct: 264</title></rect>
+<text x="475.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >O</text>
+<rect class="b" style="animation-delay:0.95s" x="506" y="194" width="24" height="74" fill="#111214"><title>Nov: 348</title></rect>
+<text x="518.0" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >N</text>
+<text x="518.0" y="188" fill="#111214" font-size="9" letter-spacing="1.26" text-anchor="middle" class="enter" style="animation-delay:1.00s">348</text>
+<rect class="b" style="animation-delay:0.70s" x="604" y="194" width="19" height="74" fill="#111214"><title>Sun: 245</title></rect>
+<text x="613.5" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >S</text>
+<text x="613.5" y="188" fill="#111214" font-size="9" letter-spacing="1.26" text-anchor="middle" class="enter" style="animation-delay:1.30s">245</text>
+<rect class="b" style="animation-delay:0.75s" x="638" y="236" width="19" height="32" fill="#c4c4bf"><title>Mon: 106</title></rect>
+<text x="647.5" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >M</text>
+<rect class="b" style="animation-delay:0.80s" x="673" y="204" width="19" height="64" fill="#c4c4bf"><title>Tue: 211</title></rect>
+<text x="682.5" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >T</text>
+<rect class="b" style="animation-delay:0.85s" x="708" y="237" width="19" height="31" fill="#c4c4bf"><title>Wed: 103</title></rect>
+<text x="717.5" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >W</text>
+<rect class="b" style="animation-delay:0.90s" x="742" y="246" width="19" height="22" fill="#c4c4bf"><title>Thu: 72</title></rect>
+<text x="751.5" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >T</text>
+<rect class="b" style="animation-delay:0.95s" x="777" y="232" width="19" height="36" fill="#c4c4bf"><title>Fri: 120</title></rect>
+<text x="786.5" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >F</text>
+<rect class="b" style="animation-delay:1.00s" x="811" y="213" width="19" height="55" fill="#c4c4bf"><title>Sat: 182</title></rect>
+<text x="820.5" y="284" fill="#5c5f66" font-size="9" letter-spacing="1.26" text-anchor="middle" >S</text>
+<rect x=".5" y=".5" width="859" height="305" fill="none" stroke="#d4d4d0"/>
+</svg>

@@ -1,21 +1,44 @@
-"""Shared Flight Deck chrome for the profile SVGs: palette, panel frame and pixel type.
+"""Shared Flight Deck chrome for the profile SVGs: themes, panel frame and pixel type.
+
+Every panel is rendered once per theme and the README picks between the two with
+<picture>, so the deck follows the reader's light or dark setting.
 
 GitHub strips web fonts from SVGs shown in a README, so display type is drawn
 here as squares (or dots) from a small bitmap alphabet instead of being set in
 a font.
 """
+from dataclasses import dataclass
 from pathlib import Path
 
 ASSETS = Path(__file__).resolve().parent.parent / "assets"
 
-GROUND = "#0b0c0f"
-HAIRLINE = "#24272d"
-LINE_STRONG = "#33373f"
-DIM = "#85878e"
-MUTED = "#9a9ca3"
-BODY = "#d6d4cc"
-INK = "#ece9e0"
-AMBER = "#ffb224"  # the one accent: section numbers, the motto, a single lit square
+
+
+@dataclass(frozen=True)
+class Theme:
+    name: str
+    ground: str
+    hairline: str
+    line_strong: str
+    dim: str
+    muted: str
+    body: str
+    ink: str
+    accent: str  # the one accent as a fill: a single lit square
+    accent_ink: str  # the accent as type: section numbers, the motto
+    grid_dot: str
+    grid_opacity: float
+    ramp: tuple  # contribution levels, ground to ink
+
+
+DARK = Theme("dark", ground="#0b0c0f", hairline="#24272d", line_strong="#33373f", dim="#85878e", muted="#9a9ca3",
+             body="#d6d4cc", ink="#ece9e0", accent="#ffb224", accent_ink="#ffb224", grid_dot="#fff", grid_opacity=0.05,
+             ramp=("#1b1e23", "#33373f", "#5c6068", "#9a9ca3", "#ece9e0"))
+# The same deck printed on paper. The fill orange can't carry small type there, so type gets a darker ink.
+LIGHT = Theme("light", ground="#f2f2f0", hairline="#d4d4d0", line_strong="#a8a9a4", dim="#5c5f66", muted="#5c5f66",
+              body="#3a3c42", ink="#111214", accent="#ff7a1a", accent_ink="#a83e08", grid_dot="#111214",
+              grid_opacity=0.07, ramp=("#e6e6e2", "#c4c4bf", "#8a8c90", "#4a4c52", "#111214"))
+THEMES = (DARK, LIGHT)
 
 MONO = "ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace"
 SANS = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Inter, Arial, sans-serif"
@@ -109,42 +132,46 @@ def pixel_text(text: str, x: float, y: float, cell: float, fill: str, dots: bool
     return f'<path fill="{fill}" shape-rendering="crispEdges" {attrs} d="{"".join(marks)}"/>'
 
 
-def label(x: float, y: float, text: str, anchor: str = "start", fill: str = MUTED, size: float = 11, attrs: str = "") -> str:
-    return (f'<text x="{x}" y="{y}" fill="{fill}" font-size="{size}" letter-spacing="{size * .14:.2f}" '
+def label(t: Theme, x: float, y: float, text: str, anchor: str = "start", fill: str = "", size: float = 11,
+          attrs: str = "") -> str:
+    return (f'<text x="{x}" y="{y}" fill="{fill or t.muted}" font-size="{size}" letter-spacing="{size * .14:.2f}" '
             f'text-anchor="{anchor}" {attrs}>{text.upper()}</text>')
 
 
-def corners(x: float, y: float, width: float, height: float, arm: float = 10, stroke: str = DIM) -> str:
+def corners(t: Theme, x: float, y: float, width: float, height: float, arm: float = 10) -> str:
     """Viewfinder brackets on the four corners of a box."""
     right, bottom = x + width, y + height
     d = (f"M{x} {y + arm}V{y}h{arm}M{right - arm} {y}h{arm}v{arm}"
          f"M{right} {bottom - arm}v{arm}h{-arm}M{x + arm} {bottom}h{-arm}v{-arm}")
-    return f'<path d="{d}" fill="none" stroke="{stroke}" shape-rendering="crispEdges"/>'
+    return f'<path d="{d}" fill="none" stroke="{t.dim}" shape-rendering="crispEdges"/>'
 
 
-def frame(height: int, title: str, body: str, style: str = "", defs: str = "") -> str:
+def frame(t: Theme, height: int, title: str, body: str, style: str = "", defs: str = "") -> str:
     """The bare deck: ground, dot grid and hairline edge."""
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{height}" viewBox="0 0 {WIDTH} {height}" role="img" aria-label="{title}">
 <style>text {{ font-family: {MONO}; }} .sans {{ font-family: {SANS}; }}{ENTER % style}</style>
-<defs><pattern id="grid" width="{GRID}" height="{GRID}" patternUnits="userSpaceOnUse"><rect x="{GRID // 2}" y="{GRID // 2}" width="1" height="1" fill="#fff" opacity=".05"/></pattern>{defs}</defs>
-<rect width="{WIDTH}" height="{height}" fill="{GROUND}"/>
+<defs><pattern id="grid" width="{GRID}" height="{GRID}" patternUnits="userSpaceOnUse"><rect x="{GRID // 2}" y="{GRID // 2}" width="1" height="1" fill="{t.grid_dot}" opacity="{t.grid_opacity}"/></pattern>{defs}</defs>
+<rect width="{WIDTH}" height="{height}" fill="{t.ground}"/>
 <rect width="{WIDTH}" height="{height}" fill="url(#grid)"/>
 {body}
-<rect x=".5" y=".5" width="{WIDTH - 1}" height="{height - 1}" fill="none" stroke="{HAIRLINE}"/>
+<rect x=".5" y=".5" width="{WIDTH - 1}" height="{height - 1}" fill="none" stroke="{t.hairline}"/>
 </svg>
 """
 
 
-def panel(height: int, index: int, name: str, body: str, style: str = "", readout: str = "") -> str:
+def panel(t: Theme, height: int, index: int, name: str, body: str, style: str = "", readout: str = "") -> str:
     """A numbered section: "01 · About" on the left, an optional readout on the right."""
-    head = (f'<text x="{PAD}" y="31" fill="{MUTED}" font-size="11" letter-spacing="1.54">'
-            f'<tspan fill="{AMBER}">{index:02d}</tspan> · {name.upper()}</text>')
+    head = (f'<text x="{PAD}" y="31" fill="{t.muted}" font-size="11" letter-spacing="1.54">'
+            f'<tspan fill="{t.accent_ink}">{index:02d}</tspan> · {name.upper()}</text>')
     if readout:
-        head += label(WIDTH - PAD, 31, readout, "end", DIM)
-    return frame(height, f"polintosh — {name}", f"{head}\n{body}", style)
+        head += label(t, WIDTH - PAD, 31, readout, "end", t.dim)
+    return frame(t, height, f"polintosh — {name}", f"{head}\n{body}", style)
 
 
-def save(name: str, svg: str) -> None:
+def save(name: str, render) -> None:
+    """Write one SVG per theme, as assets/<name>-dark.svg and assets/<name>-light.svg."""
     ASSETS.mkdir(exist_ok=True)
-    (ASSETS / name).write_text(svg)
-    print(f"wrote assets/{name}")
+    for theme in THEMES:
+        path = ASSETS / f"{name}-{theme.name}.svg"
+        path.write_text(render(theme))
+        print(f"wrote assets/{path.name}")
