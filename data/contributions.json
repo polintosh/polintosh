@@ -1,7 +1,7 @@
 {
  "user": "polintosh",
- "generated": "2026-11-21",
- "total": 1517,
+ "generated": "2026-11-22",
+ "total": 1514,
  "current_streak": 55,
  "longest_streak": 55,
  "best_day": {
@@ -9,41 +9,6 @@
   "count": 129
  },
  "days": [
-  {
-   "date": "2025-11-16",
-   "level": 0,
-   "count": 0
-  },
-  {
-   "date": "2025-11-17",
-   "level": 1,
-   "count": 4
-  },
-  {
-   "date": "2025-11-18",
-   "level": 0,
-   "count": 0
-  },
-  {
-   "date": "2025-11-19",
-   "level": 0,
-   "count": 0
-  },
-  {
-   "date": "2025-11-20",
-   "level": 0,
-   "count": 0
-  },
-  {
-   "date": "2025-11-21",
-   "level": 0,
-   "count": 0
-  },
-  {
-   "date": "2025-11-22",
-   "level": 0,
-   "count": 0
-  },
   {
    "date": "2025-11-23",
    "level": 1,
@@ -1862,7 +1827,12 @@
   {
    "date": "2026-11-21",
    "level": 1,
-   "count": 17
+   "count": 18
+  },
+  {
+   "date": "2026-11-22",
+   "level": 0,
+   "count": 0
   }
  ]
 }
